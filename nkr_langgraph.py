@@ -6,6 +6,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 from urllib.parse import urlparse
 
 import requests
+from serpapi import GoogleSearch
 from openai import OpenAI
 from openpyxl import load_workbook
 from langgraph.graph import StateGraph, END
@@ -24,10 +25,15 @@ LOCAL_KEYWORDS = [
     'food delivery',
     'meal delivery'
 ]  # simple local-intent hints
-DEFAULT_LOCATION = "Noida, India"  # configurable location for local intent
-DEFAULT_GEO_PARAMS: Dict[str, str] = {'location': DEFAULT_LOCATION}
-SEARCH_PROVIDER = "searchapi"  # options: searchapi, serpapi (fallback)
-SEARCHAPI_ENDPOINT = "https://www.searchapi.io/api/v1/search"
+DEFAULT_LOCATION = "Noida, India"  # STRICT: All searches limited to Noida, India only
+DEFAULT_GEO_PARAMS: Dict[str, str] = {
+    'location': 'Noida, Uttar Pradesh, India',
+    'gl': 'in',  # Geolocation: India
+    'hl': 'en',  # Language: English
+    'google_domain': 'google.co.in'  # STRICT: Indian Google domain only
+}
+SEARCH_PROVIDER = "serpapi"  # options: searchapi, serpapi
+# SEARCHAPI_ENDPOINT = "https://www.searchapi.io/api/v1/search"  # Commented out - using serpapi instead
 MODEL = "meta-llama/llama-3-8b-instruct"
 API_QUOTA_EXHAUSTED = False
 # Runtime event log for agentic reporting only
@@ -115,7 +121,9 @@ def find_places_rank(business_name: str, payload: dict, page: int) -> Optional[i
         title = title_raw.lower()
         print(f"[Debug] places title check: '{title_raw}'")
         if target in title:
-            return page * 10 + idx
+            # FIX: Places rank is position in local pack (1-20), not fake SERP math
+            # OLD (WRONG): return page * 10 + idx  # This gave misleading ranks like 21, 31, etc.
+            return idx  # CORRECT: Just the position in the local results list
     return None
 
 
@@ -150,20 +158,23 @@ class PlannerAgent:
 
 class SearchTool:
     """
-    Search tool backed by SearchAPI.io (default) or SerpAPI fallback. Replaces direct scraping.
+    Search tool backed by SerpAPI. Uses official serpapi Python client.
     Returns ordered URL list; preserves page offset (10 results per page).
     """
 
     def __init__(self) -> None:
-        if SEARCH_PROVIDER == "searchapi":
-            self.api_key = load_env_key("SEARCHAPI_KEY") or load_env_key("SERPAPI_KEY")
-            self.endpoint = SEARCHAPI_ENDPOINT
-        else:
-            self.api_key = load_env_key("SERPAPI_KEY")
-            self.endpoint = 'https://serpapi.com/search'
-
+        # SearchAPI implementation (commented out)
+        # if SEARCH_PROVIDER == "searchapi":
+        #     self.api_key = load_env_key("SEARCHAPI_KEY") or load_env_key("SERPAPI_KEY")
+        #     self.endpoint = SEARCHAPI_ENDPOINT
+        # else:
+        #     self.api_key = load_env_key("SERPAPI_KEY")
+        #     self.endpoint = 'https://serpapi.com/search'
+        
+        # SerpAPI implementation (active)
+        self.api_key = load_env_key("SERPAPI_KEY")
         if not self.api_key:
-            raise RuntimeError("API key missing (SEARCHAPI_KEY / SERPAPI_KEY). Please set it before running.")
+            raise RuntimeError("API key missing (SERPAPI_KEY). Please set it in your .env file before running.")
 
     def search_page(
         self,
@@ -174,42 +185,70 @@ class SearchTool:
         geo_params=None,
     ) -> Any:
 
+        # FIX: Places pagination uses multiples of 20, organic uses multiples of 10
+        if search_type == 'places':
+            start_value = page * 20  # Places: 0, 20, 40, 60...
+        else:
+            start_value = page * 10  # Organic: 0, 10, 20, 30...
+
         params = {
             'engine': 'google',
             'q': keyword,
             'api_key': self.api_key,
-            'start': page * 10,
+            'start': start_value,  # Corrected pagination
             'num': 10,
         }
 
+        # STRICT RULE: Always use Noida, India location - ignore any passed geo_params
+        strict_geo_params = {
+            'location': 'Noida, Uttar Pradesh, India',
+            'gl': 'in',  # Geolocation: India only
+            'hl': 'en',  # Language: English
+            'google_domain': 'google.co.in'  # STRICT: Indian Google domain only
+        }
+        params.update(strict_geo_params)
+
         if extra_params:
             params.update(extra_params)
-        if geo_params:
-            params.update(geo_params)
 
-        log_keys = ['q', 'start', 'location']
+        log_keys = ['q', 'start', 'location', 'gl', 'google_domain']
         log_view = {k: params[k] for k in log_keys if k in params}
-        print(f"[Tool] {SEARCH_PROVIDER} search invoked ({search_type}, page {page + 1}) with params={log_view}")
+        print(f"[Tool] SerpAPI search invoked ({search_type}, page {page + 1}) [STRICT: Noida, India on google.co.in] with params={log_view}")
 
+        # SearchAPI HTTP request implementation (commented out)
+        # try:
+        #     response = requests.get(self.endpoint, params=params, timeout=15)
+        # except requests.RequestException as exc:
+        #     print(f"Request error via {SEARCH_PROVIDER} for {keyword} page {page + 1}: {exc}")
+        #     return []
+        #
+        # if response.status_code == 429:
+        #     print(f"{SEARCH_PROVIDER} quota/429 for {keyword} page {page + 1}")
+        #     return ['__API_QUOTA__']
+        #
+        # try:
+        #     payload = response.json()
+        # except ValueError:
+        #     print(f"Non-JSON response from {SEARCH_PROVIDER} for {keyword} page {page + 1}")
+        #     return []
+        
+        # SerpAPI client implementation (active)
         try:
-            response = requests.get(self.endpoint, params=params, timeout=15)
-        except requests.RequestException as exc:
-            print(f"Request error via {SEARCH_PROVIDER} for {keyword} page {page + 1}: {exc}")
-            return []
-
-        if response.status_code == 429:
-            print(f"{SEARCH_PROVIDER} quota/429 for {keyword} page {page + 1}")
-            return ['__API_QUOTA__']
-
-        try:
-            payload = response.json()
-        except ValueError:
-            print(f"Non-JSON response from {SEARCH_PROVIDER} for {keyword} page {page + 1}")
+            search = GoogleSearch(params)
+            payload = search.get_dict()
+        except Exception as exc:
+            error_msg = str(exc).lower()
+            print(f"Request error via SerpAPI for {keyword} page {page + 1}: {exc}")
+            
+            # Check for quota/rate limit errors
+            if 'rate limit' in error_msg or '429' in error_msg or 'quota' in error_msg:
+                print(f"SerpAPI quota/429 for {keyword} page {page + 1}")
+                return ['__API_QUOTA__']
             return []
 
         if 'error' in payload:
             msg = str(payload['error']).lower()
-            print(f"{SEARCH_PROVIDER} error: {payload['error']}")
+            print(f"SerpAPI error: {payload['error']}")
             if 'over your plan' in msg or 'insufficient credits' in msg or 'limit reached' in msg or 'invalid api key' in msg:
                 return ['__API_QUOTA__']
             return []
@@ -217,15 +256,15 @@ class SearchTool:
         urls: List[str] = []
 
         if search_type == 'organic':
-            organic = payload.get('organic_results', {})
-            if isinstance(organic, dict):
-                for item in organic.get('results', []):
-                    link = item.get('url') or item.get('link')
-                    if link:
-                        urls.append(link)
+            organic = payload.get('organic_results', [])
             if isinstance(organic, list):
                 for item in organic:
-                    link = item.get('link') or item.get('redirect_link')
+                    link = item.get('link') or item.get('url')
+                    if link:
+                        urls.append(link)
+            elif isinstance(organic, dict):
+                for item in organic.get('results', []):
+                    link = item.get('url') or item.get('link')
                     if link:
                         urls.append(link)
 
@@ -290,7 +329,6 @@ def organic_search_node(state: AgentState) -> AgentState:
     geo_params = state.geo_params
     
     for page in range(MAX_PAGES):
-        print(f"[Tool] {SEARCH_PROVIDER} search invoked (organic, page {page + 1})")
         urls = searcher.search_page(state.keyword, page, 'organic', geo_params=geo_params)
         if is_quota_signal(urls):
             runtime_events.append(f"API_QUOTA_HIT keyword='{state.keyword}' stage='organic' page={page + 1}")
@@ -325,7 +363,6 @@ def places_search_node(state: AgentState) -> AgentState:
     geo_params = state.geo_params
     
     for page in range(MAX_PAGES):
-        print(f"[Tool] {SEARCH_PROVIDER} search invoked (places, page {page + 1})")
         payload = searcher.search_page(state.keyword, page, 'places', extra_params={'tbm': 'lcl'}, geo_params=geo_params)
         if payload == ['__API_QUOTA__']:
             runtime_events.append(f"API_QUOTA_HIT keyword='{state.keyword}' stage='places' page={page + 1}")
@@ -416,7 +453,8 @@ def process_keyword(keyword: str, target_url: str, geo_params: Optional[Dict[str
     # Initialize tools
     searcher = SearchTool()
     evaluator = RankEvaluator()
-    geo_params = geo_params or {'location': DEFAULT_LOCATION}
+    # STRICT: Always use Noida, India geo params (ignore any passed params)
+    geo_params = DEFAULT_GEO_PARAMS.copy()
 
     # Create initial state
     state = AgentState(
@@ -472,7 +510,8 @@ def update_workbook(input_path: str, output_path: str) -> None:
         if not keyword or not target_url:
             continue
 
-        geo_params = DEFAULT_GEO_PARAMS
+        # STRICT: All keywords search in Noida, India on google.co.in only
+        geo_params = DEFAULT_GEO_PARAMS.copy()
         places_rank, organic_rank, status = process_keyword(str(keyword), str(target_url), geo_params=geo_params)
 
         writer = ExcelWriterTool()
