@@ -1,535 +1,822 @@
-(.venv) (base) ➜  Omnie_Keyword_Ranking git:(main) ✗ python nkr_llm.py
+(.venv) (base) ➜  Omnie_Keyword_Ranking git:(main) ✗ python nkr_langgraph.py
+/Users/itsnaveenkroy/Desktop/Omnie_Keyword_Ranking/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:26: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
 Reading Keyword_Ranking.xlsx and writing results to Keyword_Ranking_updated.xlsx
 Note: This agent is a low-volume diagnostic helper. Google SERP access may be rate-limited; adhere to Google ToS.
 Writing Places to column 34 and Links to column 35
-[Agent] Planning search for keyword: 'home delivery food near me' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'home delivery food near me', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.doordash.com/near-me/category/noida/?srsltid=AfmBOorDWzzjREsFm7LYHDjblzjQKxffCex6JdVtM6w5dBAL1WWwZx8k', 'https://www.reddit.com/r/noida/comments/13rbzl8/where_can_i_order_some_good_food_from/', 'https://www.grubhub.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['doordash.com', 'reddit.com', 'grubhub.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'home delivery food near me', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.doordash.com/near-me/category/noida/?srsltid=AfmBOopsdsEwc-zbYdErDqPQ35g6j1fyu0iO6EYOowyjtr8T2Lp8nnZh', 'https://www.reddit.com/r/noida/comments/13rbzl8/where_can_i_order_some_good_food_from/']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'doordash.com', 'reddit.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'home delivery food near me', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.doordash.com/near-me/category/noida/?srsltid=AfmBOoo3pqDO0B4Z-_Zv04Z7hZDgiP_Rd852wo1Cj89ex9_HCOB-ZwdV', 'https://www.reddit.com/r/noida/comments/13rbzl8/where_can_i_order_some_good_food_from/', 'https://www.grubhub.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['doordash.com', 'reddit.com', 'grubhub.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'home delivery food near me', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.reddit.com/r/noida/comments/1ltus5z/your_go_to_restaurants_to_order_food_from/', 'https://www.doordash.com/restaurants-near-me/?srsltid=AfmBOoo8uxForCkaqDmHVr9u62yro9m3i15_WSDieCI0ywGmWtqvBBB7']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'reddit.com', 'doordash.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'home delivery food near me', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.doordash.com/near-me/category/noida/?srsltid=AfmBOorFYFwgWpRqBHlfZ4tKFsmFTHEX5RtuvjC0LSHckKE8_feeenuT', 'https://www.reddit.com/r/noida/comments/13rbzl8/where_can_i_order_some_good_food_from/', 'https://www.grubhub.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['doordash.com', 'reddit.com', 'grubhub.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'home delivery food near me', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'discussions_and_forums', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Homely Cafe'
-[Debug] places title check: 'NIKKU NIKKI DI RASOI'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'home delivery food near me', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'discussions_and_forums', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Homely Cafe'
-[Debug] places title check: 'NIKKU NIKKI DI RASOI'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'home delivery food near me', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'discussions_and_forums', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Homely Cafe'
-[Debug] places title check: 'NIKKU NIKKI DI RASOI'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'home delivery food near me', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'discussions_and_forums', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Homely Cafe'
-[Debug] places title check: 'NIKKU NIKKI DI RASOI'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'home delivery food near me', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'discussions_and_forums', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'NIKKU NIKKI DI RASOI'
-[Debug] places title check: 'Homely Cafe'
-[Agent] Summary | Keyword: home delivery food near me | Organic: None | Places: None | Pages checked: 10 | Retries: 0 | Status: Not in top 50
-[Agent] Planning search for keyword: 'tiffin service provider' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'tiffin service provider', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.myhealthytiffin.com/', 'https://us.sulekha.com/indian-tiffin-service', 'https://shef.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['myhealthytiffin.com', 'us.sulekha.com', 'shef.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'tiffin service provider', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.myhealthytiffin.com/', 'https://us.sulekha.com/indian-tiffin-service', 'https://shef.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['myhealthytiffin.com', 'us.sulekha.com', 'shef.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'tiffin service provider', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.myhealthytiffin.com/', 'https://us.sulekha.com/indian-tiffin-service', 'https://shef.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['myhealthytiffin.com', 'us.sulekha.com', 'shef.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'tiffin service provider', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.myhealthytiffin.com/', 'https://us.sulekha.com/indian-tiffin-service', 'https://shef.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['myhealthytiffin.com', 'us.sulekha.com', 'shef.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'tiffin service provider', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.myhealthytiffin.com/', 'https://us.sulekha.com/indian-tiffin-service', 'https://shef.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['myhealthytiffin.com', 'us.sulekha.com', 'shef.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'tiffin service provider', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Aarya tiffin services'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'tiffin service provider', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Aarya tiffin services'
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Mummy Da Dhaba & Tiffin service'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'tiffin service provider', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Aarya tiffin services'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'tiffin service provider', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Aarya tiffin services'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'tiffin service provider', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Aarya tiffin services'
-[Debug] places title check: 'NEERAJ tiffin service near laxmi nagar'
+[Debug] places title check: 'Myfamily Kitchen'
+[Debug] places title check: 'Bharti tiffin services'
+[Debug] places title check: 'Classic Food Corner & Local Tiffin Service'
+[Tool] SerpAPI search invoked (places, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service provider', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Km di hatti tiffin service'
+[Debug] places title check: 'Express dabba'
+[Debug] places title check: 'Jra Chakh le Tiffin Service'
+[Debug] places title check: 'JMD Tiffin Service'
+[Debug] places title check: 'Krishna Tiffin Service'
+[Debug] places title check: 'Solanki Tiffin Service'
+[Debug] places title check: 'Healthy Foods Tiffin Services'
+[Debug] places title check: 'Maharashtrian Food'
+[Debug] places title check: 'TRULY FOODIE'
+[Debug] places title check: 'The Daily Dabba Tiffin Service'
+[Debug] places title check: 'Eklavya Tiffin Service'
+[Debug] places title check: 'Maa ka Swaad Tiffin Service'
+[Debug] places title check: 'Ghar ka Khana - Tiffin Service'
+[Debug] places title check: 'Shree Shyama Foods'
+[Debug] places title check: 'Mrs. Dureja's Kitchen'
+[Debug] places title check: 'THE ROYAL KITCHEN'
+[Debug] places title check: 'Bhole Baba Tiffin Service'
+[Debug] places title check: 'Aggarwal tifin service'
+[Debug] places title check: 'Vegetarians Delight Tiffin Services'
+[Debug] places title check: 'The Meal Company: Home-Style Everyday Thali | Everyday Meal & Tiffin Service Provider'
+[Tool] SerpAPI search invoked (places, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service provider', 'start': 60, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'The Meal Company: Home-Style Everyday Thali | Everyday Meal & Tiffin Service Provider'
+[Debug] places title check: 'Sona tiffin service'
+[Debug] places title check: 'Classic Food Corner & Local Tiffin Service'
+[Debug] places title check: 'Sindhi Rasoi The Taste of Chirag Tiffin Services'
+[Debug] places title check: 'Maa Laxmi Tiffin Service'
+[Debug] places title check: 'The Weekend Dhaba'
+[Debug] places title check: 'Tiffin service by Payel’s creation'
+[Debug] places title check: 'Tiffin services (KITCHEN)'
+[Debug] places title check: 'GHAR KI RASOI NIKKU TIFFIN SERVICE'
+[Debug] places title check: 'Bharti tiffin services'
+[Debug] places title check: 'Tiffin Service (Royal Kitchen)'
+[Debug] places title check: 'Aradhya Tiffin Service Providers'
+[Debug] places title check: 'Royal Tiffin Service'
+[Debug] places title check: 'Sweet Home Tiffin Service'
+[Debug] places title check: 'Bengolicious Tiffin Service'
+[Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
+[Debug] places title check: 'BB Foods & Tiffin Services'
+[Debug] places title check: 'Vidhi Tiffin Service Noida'
+[Debug] places title check: 'Dev Bhoomi Tiffin Services'
+[Debug] places title check: 'THE HOME FOOD'
+[Tool] SerpAPI search invoked (places, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service provider', 'start': 80, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Dev Bhumi Pure Veg Tiffin services'
+[Debug] places title check: 'A K Tiffin Services'
+[Debug] places title check: 'Spicy Bot'
+[Debug] places title check: 'Aarya kitchen'
+[Debug] places title check: 'Rawat tiffin services'
+[Debug] places title check: 'Laxmi Home Kitchen & Tiffin Service'
+[Debug] places title check: 'Ghar ka Khana Tiffin Service'
+[Debug] places title check: 'Arman Tiffin Service'
+[Debug] places title check: 'Anjali Tiffin Service'
+[Debug] places title check: 'Bengali tiffin service provider noida Sector 30'
+[Debug] places title check: 'Piyush Tiffin Service'
+[Debug] places title check: 'Arnav Tiffin Service'
+[Debug] places title check: 'Alka Tiffin Services'
+[Debug] places title check: 'Vaisno tiffin service'
+[Debug] places title check: 'Vaishno tiffin service Noida sec 41'
+[Debug] places title check: 'lovers beastro ( restaurant and tiffin service provider)'
+[Debug] places title check: 'Krishnank Food Supply (Only Bulk Tiffins Only for Corporates)'
+[Debug] places title check: 'Mitya Foods Supplier & Tiffin Services | Office Food | Home Catering'
+[Debug] places title check: 'Mom's Magic Tiffin Service! Affordable Home Cooked Tiffin Service in Noida near me,'
+[Debug] places title check: 'THE HOME KITCHEN'
 [Agent] Summary | Keyword: tiffin service provider | Organic: None | Places: None | Pages checked: 10 | Retries: 0 | Status: Not in top 50
 [Agent] Planning search for keyword: 'tiffin service in noida' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'tiffin service in noida', 'start': 0, 'location': 'Noida, India'}
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service in noida', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
 [Debug] first URLs: ['https://tiffinshala.in/', 'https://www.justdial.com/Noida/Tiffin-Services/nct-10481155', 'https://www.omorganickitchen.com/our-services/']
 [Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'justdial.com', 'omorganickitchen.com']
 [Agent] Observation: Organic rank 3 (page 1)
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'tiffin service in noida', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service in noida', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'KAASHI KA SWAD (TIFFIN SERVICE NOIDA AND GREATER NOIDA)'
 [Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'TIFFIN HEAVEN'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'tiffin service in noida', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'TIFFIN HEAVEN'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'tiffin service in noida', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'TIFFIN HEAVEN'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'tiffin service in noida', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'TIFFIN HEAVEN'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'tiffin service in noida', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
 [Debug] places title check: 'Radhe Radhe Kitchen and Tiffin Service'
+[Debug] places title check: 'Annapurna Seva'
+[Debug] places title check: 'The Tiffin service Noida'
+[Debug] places title check: 'Bhola Annapurna Tiffin Service'
+[Debug] places title check: 'Gupta Tiffin Service'
+[Debug] places title check: 'Khushi Tiffin Service Noida'
+[Debug] places title check: 'Tiffin Services Homemade Crunch'
+[Debug] places title check: 'Kajal tiffin service'
+[Debug] places title check: 'kavya kitchen'
+[Debug] places title check: 'Maa Ka Khaana Corporate Tiffin & Catering Services'
+[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
+[Debug] places title check: 'Brij Bhumi - Veg Tiffin Service in noida sector -46'
+[Debug] places title check: 'The Home Foodie by Vandana'
+[Debug] places title check: 'Radha Rani Tiffin Service to Home'
+[Debug] places title check: 'Nayra Tiffin Service'
+[Debug] places title check: 'Yo Tiffin ! By Sarita Singh'
+[Debug] places title check: 'TIFFIN SERVICE NOIDA'
+[Debug] places title check: 'Noida Fresh Kitchen'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service in noida', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Nitya Tiffin Service'
+[Debug] places title check: 'Yummy times'
+[Debug] places title check: 'TIFFIN HEAVEN'
+[Debug] places title check: 'Aditi Tiffin House'
+[Debug] places title check: 'Kajal tiffin service'
+[Debug] places title check: 'Maa Ka Khaana Corporate Tiffin & Catering Services'
+[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
+[Debug] places title check: 'Varsha's Tiffin'
+[Debug] places title check: 'TIFFIN SERVICE NOIDA'
+[Debug] places title check: 'Maa ka Swaad Tiffin Service'
+[Debug] places title check: 'Mummy Da Dhaba & Tiffin service'
+[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
+[Debug] places title check: 'Cloud Kitchen Tiffin Service'
+[Debug] places title check: 'THE ROYAL KITCHEN'
+[Debug] places title check: 'Manvika's Kitchen'
+[Debug] places title check: 'Eklavya Tiffin Service'
+[Debug] places title check: 'Shree Shyama Foods'
+[Debug] places title check: 'TinTin’s Meals & Tiffins'
+[Debug] places title check: 'Charu's Kitchen'
+[Debug] places title check: 'Solanki Tiffin Service'
+[Tool] SerpAPI search invoked (places, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service in noida', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Mummy Da Dhaba & Tiffin service'
+[Debug] places title check: 'Charu's Kitchen'
+[Debug] places title check: 'Homemade Tiffin Service'
+[Debug] places title check: 'Monika Tiffin/Catering Service'
+[Debug] places title check: 'Home Food Factory'
+[Debug] places title check: 'Diamonds Tiffin Service Noida Sector 62'
+[Debug] places title check: 'Express dabba'
+[Debug] places title check: 'GURUJI Tiffin services Noida'
+[Debug] places title check: 'Solanki Tiffin Service'
+[Debug] places title check: 'Karm Catering Services (Tiffin and Food Service) in Noida, NCR'
+[Debug] places title check: 'Bhargava's Kitchen'
+[Debug] places title check: 'Vegetarians Delight Tiffin Services'
+[Debug] places title check: 'Aggarwal tifin service'
+[Debug] places title check: 'TRULY FOODIE'
+[Debug] places title check: 'Classic Food Corner & Local Tiffin Service'
+[Debug] places title check: 'Maharashtrian Food'
+[Debug] places title check: 'TIFFIN SERVICE IN NOIDA'
+[Debug] places title check: 'THE ROYAL KITCHEN'
+[Debug] places title check: 'The Weekend Dhaba'
+[Debug] places title check: 'Bharti tiffin services'
+[Tool] SerpAPI search invoked (places, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service in noida', 'start': 60, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Sweet Home Tiffin Service'
+[Debug] places title check: 'Ghar ka Khana- Tiffin service in Noida, Homemade kitchen food, meals in Sector 40, Noida'
+[Debug] places title check: 'Tiffin Service in Greater Noida - Virat Homemade Tiffin Service'
+[Debug] places title check: 'Shiv Shakti Tiffin Service'
+[Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
+[Debug] places title check: 'Maa Laxmi Tiffin Service'
+[Debug] places title check: 'GHAR KI RASOI NIKKU TIFFIN SERVICE'
+[Debug] places title check: 'The Meal Company: Home-Style Everyday Thali | Everyday Meal & Tiffin Service Provider'
+[Debug] places title check: 'Mom’s Kitchen'
+[Debug] places title check: 'Radhika Tiffin Services'
+[Debug] places title check: 'Tiffin Service (Royal Kitchen)'
+[Debug] places title check: 'Vidhi Tiffin Service Noida'
+[Debug] places title check: 'Royal Tiffin Service'
+[Debug] places title check: 'Tiffin services (KITCHEN)'
+[Debug] places title check: 'Lucknowi Tiffin - Tiffin Service in Omega, Alpha, Beta, Gamma, Pi and Knowledge Park Greater Noida'
+[Debug] places title check: 'Tiffin Services Noida @ Bachelor Dhaba'
+[Debug] places title check: 'Spicy Bot'
+[Debug] places title check: 'Ghar ka Khana Tiffin Service'
+[Debug] places title check: 'Squeezy Twist'
+[Debug] places title check: 'ghar ka swad tiffin services'
+[Tool] SerpAPI search invoked (places, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service in noida', 'start': 80, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Royal Tiffin Service'
+[Debug] places title check: 'Tiffin service by Payel’s creation'
+[Debug] places title check: 'LAKSHMI TIFFIN SERVICE'
+[Debug] places title check: 'Tiffin Service in Greater Noida - Virat Homemade Tiffin Service'
+[Debug] places title check: 'Squeezy Twist'
+[Debug] places title check: 'Spicy Bot'
+[Debug] places title check: 'Lucknowi Tiffin - Tiffin Service in Omega, Alpha, Beta, Gamma, Pi and Knowledge Park Greater Noida'
+[Debug] places title check: 'Krishnank Food Supply (Only Bulk Tiffins Only for Corporates)'
+[Debug] places title check: 'Dev Bhumi Pure Veg Tiffin services'
+[Debug] places title check: 'Aggarwal Tiffin'
+[Debug] places title check: 'Tiffin service in Noida'
+[Debug] places title check: 'Anjali Tiffin Service'
+[Debug] places title check: 'Mitya Foods Supplier & Tiffin Services | Office Food | Home Catering'
+[Debug] places title check: '99 rs tiffin service'
+[Debug] places title check: 'SHALU'S KITCHEN'
+[Debug] places title check: 'ghar ka swad tiffin services'
+[Debug] places title check: 'Kavita tiffin service'
+[Debug] places title check: 'Genz world tiffin services'
+[Debug] places title check: 'Tiffin wala'
+[Debug] places title check: 'Ghar ka Khana Tiffin Service'
 [Agent] Summary | Keyword: tiffin service in noida | Organic: 3 | Places: None | Pages checked: 6 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'tiffin service online' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'tiffin service online', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'tiffin service online', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://mytiffinexpress.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'mytiffinexpress.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'tiffin service online', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'tiffin service online', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://order.tiffin.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'order.tiffin.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'tiffin service online', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://order.tiffin.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'order.tiffin.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'tiffin service online', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service online', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.tiffit.com/locations/homemade-food-delivery-noida', 'https://www.lucknowitiffin.in/tiffin-delivery-service-in-noida']
+[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'tiffit.com', 'lucknowitiffin.in']
+[Agent] Observation: Organic rank 4 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service online', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Diamonds Tiffin Service Noida Sector 62'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'tiffin service online', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
+[Debug] places title check: 'The Mothers Cook (Housewarming, Houseparty, (Vrat / Pooja Bulk) No Onion Garlic, Office order, Daily Breakfast-Lunch-Dinner)'
 [Debug] places title check: 'The Tiffin service Noida'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'tiffin service online', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Diamonds Tiffin Service Noida Sector 62'
+[Debug] places title check: 'V R Tiffin Service n Kitchen'
+[Debug] places title check: 'Annapurna tiffin service'
+[Debug] places title check: 'Annapurna Seva'
+[Debug] places title check: 'The Home Foodie by Vandana'
+[Debug] places title check: 'Delicious Food - Home Cooked Tiffin Service in Greater Noida'
+[Debug] places title check: 'Solanki Tiffin Service'
+[Debug] places title check: 'Myfamily Kitchen'
+[Debug] places title check: 'Tiffin Services Homemade Crunch'
 [Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'tiffin service online', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
+[Debug] places title check: 'Santosh Tiffin Service'
+[Debug] places title check: 'Spice N Sizzle'
+[Debug] places title check: 'TIFFIN SERVICE NOIDA'
+[Debug] places title check: 'Monika Tiffin/Catering Service'
+[Debug] places title check: 'Manvika's Kitchen'
+[Debug] places title check: 'Satnam Rasoi - Best Tiffin Service in East Delhi'
+[Debug] places title check: 'Santusti Foods'
+[Debug] places title check: 'Gokul Bhog Kitchen & Tiffin services'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service online', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Shiv Shakti Tiffin Service'
+[Debug] places title check: 'Aditi Tiffin House'
+[Debug] places title check: 'Tiffin By Mom's'
+[Debug] places title check: 'Bhargava's Kitchen'
+[Debug] places title check: 'Chaska Restaurant & Tiffin Services'
+[Debug] places title check: 'LeKhana Tiffin Service'
+[Debug] places title check: 'Charu's Kitchen'
+[Debug] places title check: 'Online Food Tiffin Service (Home Cooked)'
+[Debug] places title check: 'Maa Ka Khaana Corporate Tiffin & Catering Services'
+[Debug] places title check: 'Mother's Kitchen : Tiffin Service'
+[Debug] places title check: 'Ghar Se Tiffin Services and Cloud Kitchen'
+[Debug] places title check: 'Kohli Tiffin Service'
 [Debug] places title check: 'Diamonds Tiffin Service Noida Sector 62'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'tiffin service online', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Diamonds Tiffin Service Noida Sector 62'
-[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
-[Agent] Summary | Keyword: tiffin service online | Organic: None | Places: None | Pages checked: 10 | Retries: 0 | Status: Not in top 50
+[Debug] places title check: 'Annapurna Kitchen's Ghar Ka Swaad'
+[Debug] places title check: 'Maa ka Swaad Tiffin Service'
+[Debug] places title check: 'sif tiffin service'
+[Debug] places title check: 'Vashishth Tiffin Service'
+[Debug] places title check: 'Punjabi tiffin service'
+[Debug] places title check: 'Grihini Kitchen'
+[Debug] places title check: 'Naivedyam Tiffin services'
+[Tool] SerpAPI search invoked (places, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service online', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Maharashtrian Food'
+[Debug] places title check: 'Jra Chakh le Tiffin Service'
+[Debug] places title check: 'D9 Food & Tiffin Service'
+[Debug] places title check: 'Healthy Foods'
+[Debug] places title check: 'Radha Rani Tiffin Service'
+[Debug] places title check: 'HMF Tiffin service'
+[Debug] places title check: 'Mama's Love Home Kitchen | Tiffin Service | Corporate Catering Services | Best Caterers in Delhi Gurgaon'
+[Debug] places title check: 'Timple Tiffin & Catering Services'
+[Debug] places title check: 'TEENA TIFFIN SERVICE'
+[Debug] places title check: 'TRULY FOODIE'
+[Debug] places title check: 'Sindhi Rasoi The Taste of Chirag Tiffin Services'
+[Debug] places title check: 'PAHADI DIDI TIFFIN SERVICE'
+[Debug] places title check: 'The Meal Company: Home-Style Everyday Thali | Everyday Meal & Tiffin Service Provider'
+[Debug] places title check: 'Jay Maa Annapurna Tiffin services'
+[Debug] places title check: 'The Royal Tiffin Service'
+[Debug] places title check: 'SAKSHI TIFFIN & CATERING SERVICES'
+[Debug] places title check: 'Om Sai Tiffin Services'
+[Debug] places title check: 'Ghar ka Khana- Tiffin service in Noida, Homemade kitchen food, meals in Sector 40, Noida'
+[Debug] places title check: 'Home Food Factory'
+[Debug] places title check: 'Sarvasuvidha Home Meal - Tiffin Service in Indirapuram'
+[Tool] SerpAPI search invoked (places, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service online', 'start': 60, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'EZ Kitchen tiffin services'
+[Debug] places title check: 'Sindhi Rasoi The Taste of Chirag Tiffin Services'
+[Debug] places title check: 'Om Sai Tiffin Services'
+[Debug] places title check: 'Timple Tiffin & Catering Services'
+[Debug] places title check: 'Sona tiffin service'
+[Debug] places title check: 'Pure Plates'
+[Debug] places title check: 'Home Food Tiffin Services'
+[Debug] places title check: 'Satnam Rasoi - Best Tiffin Service in East Delhi'
+[Debug] places title check: 'Maa Laxmi Tiffin Service'
+[Debug] places title check: 'Jay Maa Annapurna Tiffin services'
+[Debug] places title check: 'Royal Tiffin Service'
+[Debug] places title check: 'Yummy Tummy Tiffin, Daily Meal and Catering Services'
+[Debug] places title check: 'Shahi Zayka Tiffin Services'
+[Debug] places title check: 'Krishnank Food Supply (Only Bulk Tiffins Only for Corporates)'
+[Debug] places title check: 'MUMMA'S TIFFIN SERVICE'
+[Debug] places title check: 'SWADISHT TIFFIN SERVICE'
+[Debug] places title check: 'Anaya Tiffen services'
+[Debug] places title check: 'The Foodhome'
+[Debug] places title check: 'Annapurna tiffin service.'
+[Debug] places title check: 'SAKSHI TIFFIN & CATERING SERVICES'
+[Tool] SerpAPI search invoked (places, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin service online', 'start': 80, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'MUMMA'S TIFFIN SERVICE'
+[Debug] places title check: 'Poonam Pooja Ki Rasoi'
+[Debug] places title check: 'MBA Tiffin Wala'
+[Debug] places title check: 'Ghar ki Rasoi (Tiffin service)'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 5 (page 5)
+[Agent] Summary | Keyword: tiffin service online | Organic: 4 | Places: 5 | Pages checked: 6 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'healthy food online' | local_intent=False
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'healthy food online', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.hungryroot.com/', 'https://thrivemarket.com/', 'https://healthyheartmarket.com/?srsltid=AfmBOoo1uVkhjF6JKkkbeCFNoODwkg2V7thw1NIWwLjcgrj9VnZ7Zm-S']
-[Debug] target domain=omorganickitchen.com | first result domains=['hungryroot.com', 'thrivemarket.com', 'healthyheartmarket.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'healthy food online', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.hungryroot.com/', 'https://thrivemarket.com/', 'https://healthyheartmarket.com/?srsltid=AfmBOopBHgZ9_wrSjtlJR7IxGyTt6pF5UHA8ATJhOYrs0Yw5D99OqMTx']
-[Debug] target domain=omorganickitchen.com | first result domains=['hungryroot.com', 'thrivemarket.com', 'healthyheartmarket.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'healthy food online', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.hungryroot.com/', 'https://thrivemarket.com/', 'https://healthyheartmarket.com/?srsltid=AfmBOooMxNijeHp983n2AL9mzxB3DNEOHQgVn_odYWUydwpXp0IGiK_p']
-[Debug] target domain=omorganickitchen.com | first result domains=['hungryroot.com', 'thrivemarket.com', 'healthyheartmarket.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'healthy food online', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.hungryroot.com/', 'https://thrivemarket.com/', 'https://healthyheartmarket.com/?srsltid=AfmBOoo6yQ5M7DwFM70RZ6nNOuIh3UwBEn1T3JB4EKXofRfpBDhhS2VH']
-[Debug] target domain=omorganickitchen.com | first result domains=['hungryroot.com', 'thrivemarket.com', 'healthyheartmarket.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'healthy food online', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.hungryroot.com/', 'https://thrivemarket.com/', 'https://healthyheartmarket.com/?srsltid=AfmBOor43vPdrMEDBZ65lCRV63mD_pXCozTn2Ikd80R-tSuYlStNR1dr']
-[Debug] target domain=omorganickitchen.com | first result domains=['hungryroot.com', 'thrivemarket.com', 'healthyheartmarket.com']
-[Agent] Summary | Keyword: healthy food online | Organic: None | Places: None | Pages checked: 5 | Retries: 0 | Status: Not in top 50
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'healthy food online', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.swiggy.com/city/noida/healthy-food-cuisine-order-online', 'https://flatskitchen.com/foodie/healthy-food-delivery-in-noida', 'https://slurrpfarm.com/']
+[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'flatskitchen.com', 'slurrpfarm.com']
+[Tool] SerpAPI search invoked (organic, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'healthy food online', 'start': 10, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.nutriobox.com/', 'https://homefoodi.com/blog/healthy-meals-delivery-in-noida/', 'https://www.justdial.com/Noida/Healthy-Food-Delivery-Restaurants/nct-12423253']
+[Debug] target domain=omorganickitchen.com | first result domains=['nutriobox.com', 'homefoodi.com', 'justdial.com']
+[Agent] Observation: Organic rank 15 (page 2)
+[Agent] Summary | Keyword: healthy food online | Organic: 15 | Places: None | Pages checked: 2 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'organic food near me' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'organic food near me', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thealtitudestore.com/collections/fruit-vegetables?srsltid=AfmBOoqny-h8Latm0lZAKhnwpvQsk7OpRSuqBOYQPxfUfCAwiT5hGuNm', 'https://www.eatrightbasket.com/?srsltid=AfmBOoqdnZAZaXCDQwj99p7UEMoFQOXiPwrd9WN4RFRVgthzosF-ckQ3', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOopGYEHpCCeKrRb4E0v4wYoopu4Wlbq6WA6N3jIFnUj6FQa-wE8I']
-[Debug] target domain=omorganickitchen.com | first result domains=['thealtitudestore.com', 'eatrightbasket.com', 'farmfreshtoyou.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'organic food near me', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thealtitudestore.com/collections/fruit-vegetables?srsltid=AfmBOoo2qZQloTfPypiUAZbY1AcGjeFR7t_ml08j9mhHsPMqWJ3bwpyY', 'https://www.eatrightbasket.com/?srsltid=AfmBOoqkd39HmNy1BPeroNcAJrGN-ebrl6D73vktVefZId9JbEpMJtye', 'https://www.doordash.com/cuisine/organic-food-near-me/?srsltid=AfmBOopEaIrLqRrIVdhpTfC6OwZysqWkyEw6h-8P8Ca6oVnk7fM2hnPp']
-[Debug] target domain=omorganickitchen.com | first result domains=['thealtitudestore.com', 'eatrightbasket.com', 'doordash.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'organic food near me', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.eatrightbasket.com/?srsltid=AfmBOopi4bTDaL9U7KI_sOTktzviAHL2Lp0zwhgK4iEhiQZj8NSlTt6L', 'https://www.doordash.com/cuisine/organic-food-near-me/?srsltid=AfmBOorVIZ3ywj43DuK6KcRduprUGqSb9ZmZyeFS2X-_vfmP-Ru-wFJc', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOop_tm7qtJA4bHq33l4BsRhCQ9S6-3yCMbEC-f2YXh-dH0ulLGHh']
-[Debug] target domain=omorganickitchen.com | first result domains=['eatrightbasket.com', 'doordash.com', 'farmfreshtoyou.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'organic food near me', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.eatrightbasket.com/?srsltid=AfmBOopLQhQoFih7WO9MU_YS3hy_wTle5SMHQN3jgJOrtK4qZ_s_-yCX', 'https://www.doordash.com/cuisine/organic-food-near-me/?srsltid=AfmBOor6lUX7zarbeaj3cRGRamPwP_QLMR3D_5Jt0B9DHf_oCUKbJ5y2', 'https://www.wholefoodsmarket.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['eatrightbasket.com', 'doordash.com', 'wholefoodsmarket.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'organic food near me', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thealtitudestore.com/collections/fruit-vegetables?srsltid=AfmBOopHMhaAocv2hkQYQt6pZYYHB_1i-Z4hD9L8vVpHiunnENWbR1A0', 'https://www.eatrightbasket.com/?srsltid=AfmBOopwDDgl_pBbzsaSrs49fSMT_9yLM5cbFwssCYEPACchAMyaAZoz', 'https://www.doordash.com/cuisine/organic-food-near-me/?srsltid=AfmBOopmhM1ANNAn2YOA2Xe7Vl7ia-O4ZKCs-axrdWaMKLSANJU5akk0']
-[Debug] target domain=omorganickitchen.com | first result domains=['thealtitudestore.com', 'eatrightbasket.com', 'doordash.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'organic food near me', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ads', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Nisargafoods'
-[Debug] places title check: 'LYFEPURE Organics'
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.justdial.com/Noida/Organic-Food-Distributors/nct-10945101', 'https://store.organicindia.com/location/organic-shop-in-uttar-pradesh/organic-shop-in-noida/', 'https://www.justdial.com/Noida/Packaged-Organic-Food-Retailers/nct-10344576']
+[Debug] target domain=omorganickitchen.com | first result domains=['justdial.com', 'store.organicindia.com', 'justdial.com']
+[Tool] SerpAPI search invoked (organic, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 10, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://jaivikfood.com/', 'https://www.liveorganic.co.in/', 'https://www.justdial.com/Noida/Organic-Restaurants/nct-10885458']
+[Debug] target domain=omorganickitchen.com | first result domains=['jaivikfood.com', 'liveorganic.co.in', 'justdial.com']
+[Tool] SerpAPI search invoked (organic, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.earthytales.in/fruits?srsltid=AfmBOopBakb8tSGY2suABOXB1F8t-2BkPpDNIYvL7zaoGxLGJVIEh1vE', 'https://www.zomato.com/ncr/navdanya-organic-food-cafe-ina', 'https://earthyngreen.in/']
+[Debug] target domain=omorganickitchen.com | first result domains=['earthytales.in', 'zomato.com', 'earthyngreen.in']
+[Tool] SerpAPI search invoked (organic, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 30, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://organicmandya.com/?srsltid=AfmBOoo2mK6AtJA6EK5uqniTBkn99_SRCk-rzlXzwzE25BEHlMyCHcAE', 'https://vaaradhifarms.com/?srsltid=AfmBOooc_md-exb_9zUfc8S6ufsU9sKBeab2fWESTxlEwfbQ6m85sqdC', 'https://www.justdial.com/Noida/Organic-Vegetable-Retailers-in-Noida-Sector-63/nct-10344620']
+[Debug] target domain=omorganickitchen.com | first result domains=['organicmandya.com', 'vaaradhifarms.com', 'justdial.com']
+[Tool] SerpAPI search invoked (organic, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.youtube.com/watch?v=kr8txnFFWDw', 'https://chotu.com/local/organic-shop-in-indore-madhya-pradesh-india/ct-1663707/', 'https://www.naturalgrocers.com/']
+[Debug] target domain=omorganickitchen.com | first result domains=['youtube.com', 'chotu.com', 'naturalgrocers.com']
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Organic India Store - Sector 104, Noida'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'organic food near me', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Nisargafoods'
-[Debug] places title check: 'LYFEPURE Organics'
-[Debug] places title check: 'Organic India Store - Sector 104, Noida'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'organic food near me', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
 [Debug] places title check: 'Nisargafoods'
 [Debug] places title check: 'Earthy n Green'
+[Debug] places title check: 'Vakshi Organics'
+[Debug] places title check: 'Poornatva Organic Cafe & Bakery'
+[Debug] places title check: 'Azaya Organics'
+[Debug] places title check: 'Nature's Soul'
+[Debug] places title check: 'LYFEPURE Organics'
+[Debug] places title check: 'Priya organic food'
+[Debug] places title check: 'Eat Right Basket'
 [Debug] places title check: 'JaivikFood.Com'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'organic food near me', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Nisargafoods'
-[Debug] places title check: 'LYFEPURE Organics'
-[Debug] places title check: 'Organic India Store - Sector 104, Noida'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'organic food near me', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Nisargafoods'
-[Debug] places title check: 'LYFEPURE Organics'
-[Debug] places title check: 'Organic India Store - Sector 104, Noida'
-[Agent] Summary | Keyword: organic food near me | Organic: None | Places: None | Pages checked: 10 | Retries: 0 | Status: Not in top 50
+[Debug] places title check: 'The Roots | Organic & Natural Food Store'
+[Debug] places title check: 'Organic Tattva (Mehrotra Consumer Products Pvt Ltd)'
+[Debug] places title check: 'Organic Natures Pure A2 Desi Cow Ghee'
+[Debug] places title check: 'MOTHER ORGANIC SB INDIA PRIVATE LIMITED'
+[Debug] places title check: 'Earth Organic Store'
+[Debug] places title check: 'Every Little Thing The Home Store'
+[Debug] places title check: 'Amira's Kitchen - Restaurant (A Unit of Jay Caterers & Decorators)'
+[Debug] places title check: 'Nature To Homes Foods(pure mustard oil and chakki atta'
+[Debug] places title check: 'FreshNature Organic Foods'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food near me', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'EDIFY | Healthy Cafe in Noida'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 2 (page 2)
+[Agent] Summary | Keyword: organic food near me | Organic: None | Places: 2 | Pages checked: 7 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'meal delivery service' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'meal delivery service', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.blueapron.com/?srsltid=AfmBOorC5lCmwxct7DVGbNHmSdCHCt0KvH5uPCbO5q1i4k9ndHR0rdBw', 'https://www.homechef.com/?srsltid=AfmBOop-cj02oxsJh_xv2K0X2yJtC37Kd0WJcKvQ1or7qdbnOZsrWdQI', 'https://www.hellofresh.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['blueapron.com', 'homechef.com', 'hellofresh.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'meal delivery service', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.blueapron.com/?srsltid=AfmBOop9Jah86v0gWeom6r68QSIvlnCK1-GQg33QPcs_9l90kKbVx92W', 'https://www.homechef.com/?srsltid=AfmBOortqfQHBhcAKIchoWTU-odY4YrWzTuP0p-spFSaOM-K6Z2oDuvk', 'https://www.hellofresh.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['blueapron.com', 'homechef.com', 'hellofresh.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'meal delivery service', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.blueapron.com/?srsltid=AfmBOoreYC6zirjLFOIPCB0ItswBSN90dKyQjBxHs3JRsMZ0UoZMq_1E', 'https://www.homechef.com/?srsltid=AfmBOor8dJCzkKA_0rZA1Quyxs1CiZEqLlkMpLqOLOGR0_i5it1uGIDT', 'https://www.hellofresh.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['blueapron.com', 'homechef.com', 'hellofresh.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'meal delivery service', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.blueapron.com/?srsltid=AfmBOopl3DjjTvQjMU64GepbtaqV1Gm2e6BJT69Io1uRlJVd1OLJYKhP', 'https://www.homechef.com/?srsltid=AfmBOoo8yNsQ-9bFRioceBM6SVYNMaEDS6OnGtQvjMBnKikfmawMem-b', 'https://www.hellofresh.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['blueapron.com', 'homechef.com', 'hellofresh.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'meal delivery service', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.blueapron.com/?srsltid=AfmBOorz9jfbn5b9oaHTIrvDduAGmvymTdCm9ow70hhqFuIpukE3iTz6', 'https://www.homechef.com/?srsltid=AfmBOopU9WFDSBqf2OfOL3KNgCBZZ4fut-2n9TUDT77xhJyO3FPTePLk', 'https://www.hellofresh.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['blueapron.com', 'homechef.com', 'hellofresh.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'meal delivery service', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ads', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'discussions_and_forums', 'related_questions', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'meal delivery service', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.tiffit.com/locations/homemade-food-delivery-noida', 'https://tiffinshala.in/', 'https://homefoodi.com/blog/meal-subscription-plans-in-noida/']
+[Debug] target domain=omorganickitchen.com | first result domains=['tiffit.com', 'tiffinshala.in', 'homefoodi.com']
+[Agent] Observation: Organic rank 9 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'meal delivery service', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'The Mothers Cook (Housewarming, Houseparty, (Vrat / Pooja Bulk) No Onion Garlic, Office order, Daily Breakfast-Lunch-Dinner)'
 [Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
-[Agent] Observation: Places rank 1 (page 1)
-[Agent] Summary | Keyword: meal delivery service | Organic: None | Places: 1 | Pages checked: 6 | Retries: 0 | Status: Completed
+[Agent] Observation: Places rank 2 (page 1)
+[Agent] Summary | Keyword: meal delivery service | Organic: 9 | Places: 2 | Pages checked: 2 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'food delivery in noida' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'food delivery in noida', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.zomato.com/ncr/noida-order-online', 'https://www.tripadvisor.com/Restaurants-g644043-zfp19-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'zomato.com', 'tripadvisor.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'food delivery in noida', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.tripadvisor.com/Restaurants-g644043-zfp19-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html', 'https://www.zomato.com/ncr/noida-order-online']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'tripadvisor.com', 'zomato.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'food delivery in noida', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.zomato.com/ncr/noida-order-online', 'https://www.tripadvisor.com/Restaurants-g644043-zfp19-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'zomato.com', 'tripadvisor.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'food delivery in noida', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.zomato.com/ncr/noida-order-online', 'https://www.tripadvisor.com/Restaurants-g644043-zfp19-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'zomato.com', 'tripadvisor.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'food delivery in noida', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.tripadvisor.com/Restaurants-g644043-zfp19-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html', 'https://www.zomato.com/ncr/noida-order-online']
-[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'tripadvisor.com', 'zomato.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'food delivery in noida', 'start': 0, 'location': 'Noida, India'}
-Request error via searchapi for food delivery in noida page 1: HTTPSConnectionPool(host='www.searchapi.io', port=443): Read timed out. (read timeout=15)
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'food delivery in noida', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.swiggy.com/city/noida/order-online', 'https://www.eatsure.com/noida-restaurants', 'https://www.tripadvisor.in/Restaurants-g644043-zfp19-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html']
+[Debug] target domain=omorganickitchen.com | first result domains=['swiggy.com', 'eatsure.com', 'tripadvisor.in']
+[Tool] SerpAPI search invoked (organic, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 10, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://flatskitchen.com/foodie/online-home-food-delivery-in-noida', 'https://magicpin.in/@online-food-ordering-noida?srsltid=AfmBOooiPBWKIFY2xXpaoeDS630R_pEqtehg2eqX2I44hvxehrOCWE_4', 'https://www.eatsure.com/noida/greater-noida-fc']
+[Debug] target domain=omorganickitchen.com | first result domains=['flatskitchen.com', 'magicpin.in', 'eatsure.com']
+[Tool] SerpAPI search invoked (organic, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://play.google.com/store/apps/details?id=com.application.zomato&hl=en_IN', 'https://tiffinshala.in/', 'https://www.zomato.com/ncr/night-food-delivery-sector-62-noida']
+[Debug] target domain=omorganickitchen.com | first result domains=['play.google.com', 'tiffinshala.in', 'zomato.com']
+[Tool] SerpAPI search invoked (organic, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 30, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.dominos.co.in/store-location/greater-noida/greater-noida', 'https://www.justdial.com/Greater-Noida/Online-Websites-For-Food-Delivery-in-Greater-Noida/nct-11113184', 'https://www.handover.in/gaur-city/']
+[Debug] target domain=omorganickitchen.com | first result domains=['dominos.co.in', 'justdial.com', 'handover.in']
+[Tool] SerpAPI search invoked (organic, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.eatsure.com/noida/noida-greater-2', 'https://new.caterninja.com/', 'https://www.facebook.com/Grihinikitchen1/videos/%F0%9D%90%86%F0%9D%90%91%F0%9D%90%88%F0%9D%90%87%F0%9D%90%88%F0%9D%90%8D%F0%9D%90%88-%F0%9D%90%8A%F0%9D%90%88%F0%9D%90%93%F0%9D%90%82%F0%9D%90%87%F0%9D%90%84%F0%9D%90%8D-ghar-ka-swaad-tiffin-service-in-noida-contact-us-today-%EF%B8%8F-%EF%B8%8F-09818/496418518969879/']
+[Debug] target domain=omorganickitchen.com | first result domains=['eatsure.com', 'new.caterninja.com', 'facebook.com']
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Sky High Noida'
-[Debug] places title check: 'Singh Foods Noida'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'food delivery in noida', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
+[Debug] places title check: 'Amira's Kitchen - Restaurant (A Unit of Jay Caterers & Decorators)'
+[Debug] places title check: 'The Mothers Cook (Housewarming, Houseparty, (Vrat / Pooja Bulk) No Onion Garlic, Office order, Daily Breakfast-Lunch-Dinner)'
+[Debug] places title check: 'Hyderabad Delights'
 [Debug] places title check: 'Singh Foods Noida'
 [Debug] places title check: 'The Sky High Noida'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'food delivery in noida', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Singh Foods Noida'
-[Debug] places title check: 'The Sky High Noida'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'food delivery in noida', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Sky High Noida'
-[Debug] places title check: 'Singh Foods Noida'
-[Agent] Summary | Keyword: food delivery in noida | Organic: None | Places: None | Pages checked: 10 | Retries: 0 | Status: Not in top 50
+[Debug] places title check: 'Peopleforgravy PFG'
+[Debug] places title check: 'Pizza Hut | Sector 104, Noida'
+[Debug] places title check: 'Say Fontina - Italian | Mediterranean | Coffee | Naples Pizza | Premium Dessert'
+[Debug] places title check: 'World Trail - Best Pizza Restaurant in Noida'
+[Debug] places title check: 'THE FOOD DUDES'
+[Debug] places title check: 'Vaishnavie Food'
+[Debug] places title check: 'Khabose'
+[Debug] places title check: 'The Chinese Hut'
+[Debug] places title check: 'Yo Tiffin ! By Sarita Singh'
+[Debug] places title check: 'Jalandhari Vibes'
+[Debug] places title check: 'Kanha Bhog'
+[Debug] places title check: 'The Yellow Chilli - Noida'
+[Debug] places title check: 'Swagath Restro & Bar starling mall sec-104 noida'
+[Debug] places title check: 'Tossin Pizza Sector 142 Noida | Best Pizza in Noida'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Tossin Pizza Sector 142 Noida | Best Pizza in Noida'
+[Debug] places title check: 'Doosri Mehfil Restaurant & Catering Services'
+[Debug] places title check: 'Trishna Kitchen'
+[Debug] places title check: 'California Burrito Mexican Kitchen @ Sector 127 Noida'
+[Debug] places title check: 'Foodie Dil से 93'
+[Debug] places title check: 'The Railicious'
+[Debug] places title check: 'Chawlas Chicken'
+[Debug] places title check: 'NIKKU NIKKI DI RASOI'
+[Debug] places title check: 'Lazzat e Lucknow'
+[Debug] places title check: 'Pizza Hut | World One Sector 90, Noida'
+[Debug] places title check: 'The Barbeque Company'
+[Debug] places title check: 'Mom's Kitchen'
+[Debug] places title check: 'Pizza Price'
+[Debug] places title check: 'ENSO - Sourdough Pizza by Nomad - Noida Sec 9'
+[Debug] places title check: 'Haldiram's - Grand Street, Noida'
+[Debug] places title check: 'California Burrito Mexican Kitchen @ Sector 142, Advant Navis Noida'
+[Debug] places title check: 'Niteeka's ,take away , food delivery near me, chinese food delivery'
+[Debug] places title check: 'Bercos Spectrum Metro Sector 75'
+[Debug] places title check: 'Srivastava Food'
+[Debug] places title check: 'Chaat Cheers - Best Lucknow Chaat in Noida (Delivery/Take Away)'
+[Tool] SerpAPI search invoked (places, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Hong's Kitchen'
+[Debug] places title check: 'Haldiram's - Spectrum Mall, Noida'
+[Debug] places title check: 'Faasos Noida Sec 41'
+[Debug] places title check: 'Domino's Pizza | Sector 50, Noida'
+[Debug] places title check: 'Oriental Mom'
+[Debug] places title check: 'Pizza Hut | Paras One Sector 133, Noida'
+[Debug] places title check: 'California Burrito Mexican Kitchen @ Sector 98, Skymark Noida'
+[Debug] places title check: 'Khushi Tiffin Service Noida'
+[Debug] places title check: 'Lunch Box Sector 46'
+[Debug] places title check: 'EATCLUB | Order Food Online'
+[Debug] places title check: 'Freshmme foods'
+[Debug] places title check: 'Curries Badshah'
+[Debug] places title check: 'Brij Bhumi - Veg Tiffin Service in noida sector -46'
+[Debug] places title check: 'The Oriental Spice - Noida Sector 41'
+[Debug] places title check: 'ASAP - As Spicy As Possible'
+[Debug] places title check: 'Kitchen Mantra'
+[Debug] places title check: 'THEOS'
+[Debug] places title check: 'WOW China'
+[Debug] places title check: 'Allo’s Dine In & Take Away'
+[Debug] places title check: 'Maharani Meals'
+[Tool] SerpAPI search invoked (places, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 60, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Maharani Meals'
+[Debug] places title check: 'Biryani By Kilo - Sector 135 Noida'
+[Debug] places title check: 'Domino's Pizza | SEC-110 , NOIDA'
+[Debug] places title check: 'Namashkar Noida'
+[Debug] places title check: 'Pizza Hut | Gulshan 129, Noida'
+[Debug] places title check: 'Cravino Pizza'
+[Debug] places title check: 'Sagar chole bhature'
+[Debug] places title check: 'THE ROBOT RESTAURANT- YELLOW HOUSE NOIDA'
+[Debug] places title check: 'Kitchen Tales: Meals at home, made at home.'
+[Debug] places title check: 'Lapino'z Pizza- Noida Sector-90 Alphathum'
+[Debug] places title check: 'Bhaat.in'
+[Debug] places title check: 'Annapurna Meals'
+[Debug] places title check: 'Wow! Momo'
+[Debug] places title check: 'The Oriental Spice'
+[Debug] places title check: 'Royal foods'
+[Debug] places title check: 'WOW China'
+[Debug] places title check: 'Tandoori Hut'
+[Debug] places title check: 'Nazeer Foods'
+[Debug] places title check: 'WOW Chicken'
+[Debug] places title check: 'Nutri Pizza'
+[Tool] SerpAPI search invoked (places, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'food delivery in noida', 'start': 80, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'ads_results', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Nazeer Foods'
+[Debug] places title check: 'Wow! Momo'
+[Debug] places title check: 'WOW Chicken'
+[Debug] places title check: 'vyanjan Restaurant'
+[Debug] places title check: 'Pizza Hut | Paras One Sector 133, Noida'
+[Debug] places title check: 'Pizza Hut | Gulshan 129, Noida'
+[Debug] places title check: 'Bhaat.in'
+[Debug] places title check: 'Domino's Pizza | Sector 78, Noida'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 9 (page 5)
+[Agent] Summary | Keyword: food delivery in noida | Organic: None | Places: 9 | Pages checked: 10 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'tiffin delivery service' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'tiffin delivery service', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'tiffin delivery service', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'tiffin delivery service', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'tiffin delivery service', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'tiffin delivery service', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.myhealthytiffin.com/', 'https://pranitaskitchen.com/']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'myhealthytiffin.com', 'pranitaskitchen.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'tiffin delivery service', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ai_overview', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin delivery service', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.tiffit.com/locations/homemade-food-delivery-noida', 'https://www.justdial.com/Noida/Tiffin-Services/nct-10481155']
+[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'tiffit.com', 'justdial.com']
+[Agent] Observation: Organic rank 10 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin delivery service', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Homefoodi : Home Food Delivery'
+[Debug] places title check: 'KAASHI KA SWAD (TIFFIN SERVICE NOIDA AND GREATER NOIDA)'
+[Debug] places title check: 'Radhe Radhe Kitchen and Tiffin Service'
+[Debug] places title check: 'Yo Tiffin ! By Sarita Singh'
+[Debug] places title check: 'The Tiffin service Noida'
+[Debug] places title check: 'Delicious Food - Home Cooked Tiffin Service in Greater Noida'
+[Debug] places title check: 'Khushi Tiffin Service Noida'
 [Debug] places title check: 'kavya kitchen'
+[Debug] places title check: 'The Home Foodie by Vandana'
+[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
+[Debug] places title check: 'Nayra Tiffin Service'
+[Debug] places title check: 'Brij Bhumi - Veg Tiffin Service in noida sector -46'
+[Debug] places title check: 'Healthy Bites-Tiffin Services & Cloud Kitchen'
 [Debug] places title check: 'Aarya tiffin services'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'tiffin delivery service', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ai_overview', 'ads', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'Bikaner Tiffin Services'
-[Debug] places title check: 'kavya kitchen'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'tiffin delivery service', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ai_overview', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Aarya tiffin services'
-[Debug] places title check: 'kavya kitchen'
+[Debug] places title check: 'V R Tiffin Service n Kitchen'
+[Debug] places title check: 'Deepa Catering Services'
 [Debug] places title check: 'THE HOME KITCHEN'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'tiffin delivery service', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ai_overview', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
+[Debug] places title check: 'Annapurna Seva'
+[Debug] places title check: 'Bhola Annapurna Tiffin Service'
+[Debug] places title check: 'Tiffin Services Homemade Crunch'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin delivery service', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Cloud Kitchen Tiffin Service'
+[Debug] places title check: 'Delicious Food - Home Cooked Tiffin Service in Greater Noida'
+[Debug] places title check: 'Gupta Tiffin Service'
+[Debug] places title check: 'Bhola Annapurna Tiffin Service'
+[Debug] places title check: 'Nayra Tiffin Service'
+[Debug] places title check: 'Mother's Kitchen : Tiffin Service'
+[Debug] places title check: 'Radha Rani Tiffin Service to Home'
+[Debug] places title check: 'Yummy times'
+[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
+[Debug] places title check: 'Annapurna Seva'
+[Debug] places title check: 'Kajal tiffin service'
+[Debug] places title check: 'LeKhana Tiffin Service'
+[Debug] places title check: 'Chatori's Cloud Kitchen & Tiffin Service'
+[Debug] places title check: 'Bhargava's Kitchen'
+[Debug] places title check: 'Tiffin services (KITCHEN)'
+[Debug] places title check: 'JMD Tiffin Service'
+[Debug] places title check: 'Gokul Bhog Kitchen & Tiffin services'
+[Debug] places title check: 'Maharashtrian Food'
+[Debug] places title check: 'Shiv Shakti Tiffin Service'
+[Debug] places title check: 'Santosh Tiffin Service'
+[Tool] SerpAPI search invoked (places, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin delivery service', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Santosh Tiffin Service'
+[Debug] places title check: 'Yummy times'
+[Debug] places title check: 'Maa ka Swaad Tiffin Service'
+[Debug] places title check: 'AS TIFFIN SERVICE'
+[Debug] places title check: 'Shiv Shakti Tiffin Service'
+[Debug] places title check: 'Gokul Bhog Kitchen & Tiffin services'
+[Debug] places title check: 'TIFFIN SERVICE NOIDA'
+[Debug] places title check: 'Aditi Tiffin House'
+[Debug] places title check: 'Timple Tiffin & Catering Services'
+[Debug] places title check: 'Bhargava's Kitchen'
+[Debug] places title check: 'Apna Jugaad Kitchen Tiffin Services'
+[Debug] places title check: 'Food Paradise Tiffin Service'
+[Debug] places title check: 'JMD Tiffin Service'
+[Debug] places title check: 'Raj Tifin Service & Caterings'
+[Debug] places title check: 'The Daily Dabba Tiffin Service'
+[Debug] places title check: 'Monika Tiffin/Catering Service'
+[Debug] places title check: 'Diamonds Tiffin Service Noida Sector 62'
+[Debug] places title check: 'Healthy Foods Tiffin Services'
+[Debug] places title check: 'Satvik Rasoi'
+[Debug] places title check: 'Kanha Tiffin Service'
+[Tool] SerpAPI search invoked (places, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin delivery service', 'start': 60, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Maharashtrian Food'
+[Debug] places title check: 'Varsha's Tiffin'
+[Debug] places title check: 'Mrs. Dureja's Kitchen'
 [Debug] places title check: 'Bikaner Tiffin Services'
-[Debug] places title check: 'kavya kitchen'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'tiffin delivery service', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'ai_overview', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'kavya kitchen'
-[Debug] places title check: 'Bikaner Tiffin Services'
-[Agent] Summary | Keyword: tiffin delivery service | Organic: None | Places: None | Pages checked: 10 | Retries: 0 | Status: Not in top 50
+[Debug] places title check: 'sif tiffin service'
+[Debug] places title check: 'Vegetarians Delight Tiffin Services'
+[Debug] places title check: 'Radhika Tiffin Services'
+[Debug] places title check: 'Shree Shyama Foods'
+[Debug] places title check: 'Healthy tiffin service Guru'
+[Debug] places title check: 'Delicious Food Indirapuram'
+[Debug] places title check: 'Krishna Tiffin Service'
+[Debug] places title check: 'Shipra's Kitchen'
+[Debug] places title check: 'Aggarwal tifin service'
+[Debug] places title check: 'Better Choice Food & Tiffin Meals Delivery Services'
+[Debug] places title check: 'HMF Tiffin service'
+[Debug] places title check: 'Grihini Kitchen'
+[Debug] places title check: 'Annapurna Tiffin Service'
+[Debug] places title check: 'The Meal Company: Home-Style Everyday Thali | Everyday Meal & Tiffin Service Provider'
+[Debug] places title check: 'GHAR KI RASOI NIKKU TIFFIN SERVICE'
+[Debug] places title check: 'Sarvasuvidha Home Meal - Tiffin Service in Indirapuram'
+[Tool] SerpAPI search invoked (places, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'tiffin delivery service', 'start': 80, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'WOW TIFFIN [BEST QUALITY TIFFIN SERVICE]'
+[Debug] places title check: 'Tiffin Panda- Food Delivery Service'
+[Debug] places title check: 'Royal Tiffin Service'
+[Debug] places title check: 'Feed the Need tiffin service'
+[Debug] places title check: 'Tiffin service by Payel’s creation'
+[Debug] places title check: 'GURUJI Tiffin services Noida'
+[Debug] places title check: 'Tiffin services (KITCHEN)'
+[Debug] places title check: 'New Ratandeep Tiffin Service'
+[Debug] places title check: 'BB Foods & Tiffin Services'
+[Debug] places title check: 'Maa Laxmi Tiffin Service'
+[Debug] places title check: 'Spicy Bot'
+[Debug] places title check: 'Lucknowi Tiffin - Tiffin Service in Omega, Alpha, Beta, Gamma, Pi and Knowledge Park Greater Noida'
+[Debug] places title check: 'Hazel's Kitchen'
+[Debug] places title check: 'Swami Tiffin Service'
+[Debug] places title check: 'Vidhi Tiffin Service Noida'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 16 (page 5)
+[Agent] Summary | Keyword: tiffin delivery service | Organic: 10 | Places: 16 | Pages checked: 6 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'organic food delivery' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'organic food delivery', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thrivemarket.com/', 'https://www.thegoodtrade.com/features/healthy-organic-food-delivery-services/', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOooz4kCuOTVtqGeOWcFzGJMMlS0c5z6PkMsOGfTYcxdd6C9IhfOZ']
-[Debug] target domain=omorganickitchen.com | first result domains=['thrivemarket.com', 'thegoodtrade.com', 'farmfreshtoyou.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'organic food delivery', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thrivemarket.com/', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOooy_2RsJ81He3X5Jxa1pf1Vw43cs0Wf0qHlDYIJJukIFwkKCY-e', 'https://www.thegoodtrade.com/features/healthy-organic-food-delivery-services/']
-[Debug] target domain=omorganickitchen.com | first result domains=['thrivemarket.com', 'farmfreshtoyou.com', 'thegoodtrade.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'organic food delivery', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thrivemarket.com/', 'https://www.thegoodtrade.com/features/healthy-organic-food-delivery-services/', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOopAlQJirC89NG_Nw6TdAZeaak9G6CVPs6T9uKy8siJbF2X-71r9']
-[Debug] target domain=omorganickitchen.com | first result domains=['thrivemarket.com', 'thegoodtrade.com', 'farmfreshtoyou.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'organic food delivery', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thrivemarket.com/', 'https://www.thegoodtrade.com/features/healthy-organic-food-delivery-services/', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOopnH_pZhB47XhwUDDjFiqJ33uwjOOSX443FSaSbX3u03OoJJqVH']
-[Debug] target domain=omorganickitchen.com | first result domains=['thrivemarket.com', 'thegoodtrade.com', 'farmfreshtoyou.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'organic food delivery', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://thrivemarket.com/', 'https://www.thegoodtrade.com/features/healthy-organic-food-delivery-services/', 'https://www.farmfreshtoyou.com/?srsltid=AfmBOooB-Yf_FFNlLheMQyDOlPehRvqgFyffQbnMWmavdRjnTQvIWAyZ']
-[Debug] target domain=omorganickitchen.com | first result domains=['thrivemarket.com', 'thegoodtrade.com', 'farmfreshtoyou.com']
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'organic food delivery', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food delivery', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.earthytales.in/?srsltid=AfmBOop7HsuYVLcKnEj39rHEWwClPQkfdY_cn3TOqeIsaPfI3zw60vNU', 'https://www.eatrightbasket.com/?srsltid=AfmBOorEhQuARPhbdzP6pwDwn-NCE-Q14ORh8ssB8yzARMMCHyvWo5_8', 'https://flatskitchen.com/foodie/organic-meals-home-delivery-in-noida']
+[Debug] target domain=omorganickitchen.com | first result domains=['earthytales.in', 'eatrightbasket.com', 'flatskitchen.com']
+[Agent] Observation: Organic rank 5 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food delivery', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Nisargafoods'
+[Debug] places title check: 'Organic India Store - Sector 104, Noida'
+[Debug] places title check: 'Nature's Soul'
+[Debug] places title check: 'Vakshi Organics'
+[Debug] places title check: 'Earthy n Green'
+[Debug] places title check: 'Azaya Organics'
 [Debug] places title check: 'LYFEPURE Organics'
 [Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
-[Agent] Observation: Places rank 3 (page 1)
-[Agent] Summary | Keyword: organic food delivery | Organic: None | Places: 3 | Pages checked: 6 | Retries: 0 | Status: Completed
+[Agent] Observation: Places rank 8 (page 1)
+[Agent] Summary | Keyword: organic food delivery | Organic: 5 | Places: 8 | Pages checked: 2 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'corporate tiffin services' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'corporate tiffin services', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://www.omorganickitchen.com/our-services/', 'https://tiffinshala.in/', 'https://www.justdial.com/Noida/Tiffin-Services-For-Office-in-Noida-Sector-18/nct-10481179']
-[Debug] target domain=omorganickitchen.com | first result domains=['omorganickitchen.com', 'tiffinshala.in', 'justdial.com']
-[Agent] Observation: Organic rank 1 (page 1)
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'corporate tiffin services', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate tiffin services', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.justdial.com/Noida/Tiffin-Services-For-Office-in-Noida-Sector-18/nct-10481179', 'https://www.omorganickitchen.com/our-services/', 'https://tiffinshala.in/']
+[Debug] target domain=omorganickitchen.com | first result domains=['justdial.com', 'omorganickitchen.com', 'tiffinshala.in']
+[Agent] Observation: Organic rank 2 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate tiffin services', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
-[Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
 [Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'corporate tiffin services', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
-[Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'corporate tiffin services', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
 [Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
 [Debug] places title check: 'Maa Ka Khaana Corporate Tiffin & Catering Services'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'corporate tiffin services', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
-[Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'corporate tiffin services', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_questions', 'related_searches', 'pagination']
-[Debug] places title check: 'Sian corporate tiffin and services Noida Bulk order only'
-[Debug] places title check: 's.s. corporate tiffin services in noida, bulk order only'
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Agent] Summary | Keyword: corporate tiffin services | Organic: 1 | Places: None | Pages checked: 6 | Retries: 0 | Status: Completed
+[Debug] places title check: 'KAASHI KA SWAD (TIFFIN SERVICE NOIDA AND GREATER NOIDA)'
+[Debug] places title check: 'Gupta Tiffin Service'
+[Debug] places title check: 'Yo Tiffin ! By Sarita Singh'
+[Debug] places title check: 'Nagpal Corporate Tiffin Service'
+[Debug] places title check: 'Radhe Radhe Kitchen and Tiffin Service'
+[Debug] places title check: 'Mama's Love Home Kitchen | Tiffin Service | Corporate Catering Services | Best Caterers in Delhi Gurgaon'
+[Debug] places title check: 'kavya kitchen'
+[Debug] places title check: 'Luscious Tiffins | Corporate Food Supplier | Corporate Meal | Corporate Box Lunches | Corporate Lunches'
+[Debug] places title check: 'Bhola Annapurna Tiffin Service'
+[Debug] places title check: 'TIFFIN HEAVEN'
+[Debug] places title check: 'Tiffin Services Homemade Crunch'
+[Debug] places title check: 'Khushi Tiffin Service Noida'
+[Debug] places title check: 'Nayra Tiffin Service'
+[Debug] places title check: 'Brij Bhumi - Veg Tiffin Service in noida sector -46'
+[Debug] places title check: 'The Tiffin service Noida'
+[Debug] places title check: 'Ghar ghar tiffin services homely food'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate tiffin services', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Aarya tiffin services'
+[Debug] places title check: 'Deepa Catering Services'
+[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
+[Debug] places title check: 'Cloud Kitchen Tiffin Service'
+[Debug] places title check: 'Santosh Tiffin Service'
+[Debug] places title check: 'Healthy Bites-Tiffin Services & Cloud Kitchen'
+[Debug] places title check: 'THE HOME KITCHEN'
+[Debug] places title check: 'Gokul Bhog Kitchen & Tiffin services'
+[Debug] places title check: 'Kajal tiffin service'
+[Debug] places title check: 'Bhargava's Kitchen'
+[Debug] places title check: 'Ghar ka Khana - Tiffin Service'
+[Debug] places title check: 'Jra Chakh le Tiffin Service'
+[Debug] places title check: 'Yummy times'
+[Debug] places title check: 'Monika Tiffin/Catering Service'
+[Debug] places title check: 'Homemade Tiffin Service'
+[Debug] places title check: 'Vegetarians Delight Tiffin Services'
+[Debug] places title check: 'Radha Rani Tiffin Service to Home'
+[Debug] places title check: 'Nitya Tiffin Service'
+[Debug] places title check: 'Shree Shyama Foods'
+[Debug] places title check: 'Om Sai Tiffin Services'
+[Tool] SerpAPI search invoked (places, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate tiffin services', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Aditi Tiffin House'
+[Debug] places title check: 'Radhika Tiffin Services'
+[Debug] places title check: 'TRULY FOODIE'
+[Debug] places title check: 'Shiv Shakti Tiffin Service'
+[Debug] places title check: 'Solanki Tiffin Service'
+[Debug] places title check: 'sif tiffin service'
+[Debug] places title check: 'Maa ka Swaad Tiffin Service'
+[Debug] places title check: 'Sona tiffin service'
+[Debug] places title check: 'Mummy Da Dhaba & Tiffin service'
+[Debug] places title check: 'Mrs. Dureja's Kitchen'
+[Debug] places title check: 'Sindhi Rasoi The Taste of Chirag Tiffin Services'
+[Debug] places title check: 'The Meal Company: Home-Style Everyday Thali | Everyday Meal & Tiffin Service Provider'
+[Debug] places title check: 'Vegetarians Delight Tiffin Services'
+[Debug] places title check: 'GHAR KI RASOI NIKKU TIFFIN SERVICE'
+[Debug] places title check: 'THE ROYAL KITCHEN'
+[Debug] places title check: 'Bharti tiffin services'
+[Debug] places title check: 'Tiffin services (KITCHEN)'
+[Debug] places title check: 'Mitya Foods Supplier & Tiffin Services | Office Food | Home Catering'
+[Debug] places title check: 'BB Foods & Tiffin Services'
+[Debug] places title check: 'Classic Food Corner & Local Tiffin Service'
+[Tool] SerpAPI search invoked (places, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate tiffin services', 'start': 60, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'New Ratandeep Tiffin Service'
+[Debug] places title check: 'Tiffin Service (Royal Kitchen)'
+[Debug] places title check: 'Maharashtrian Food'
+[Debug] places title check: 'Corporate Dhaba & Tiffin Service'
+[Debug] places title check: 'Home Food Tiffin Services'
+[Debug] places title check: 'Saini Food Tiffin Services'
+[Debug] places title check: 'Ghar ka Khana Tiffin Service'
+[Debug] places title check: 'Krishnank Food Supply (Only Bulk Tiffins Only for Corporates)'
+[Debug] places title check: 'Shyama Tiffin Services'
+[Debug] places title check: 'Express dabba'
+[Debug] places title check: 'Annapurna Tiffin service'
+[Debug] places title check: 'Dev Bhoomi Tiffin Services'
+[Debug] places title check: 'Royal Tiffin Service'
+[Debug] places title check: 'Arman Tiffin Service'
+[Debug] places title check: 'Spicy Bot'
+[Debug] places title check: 'Tiffin service by Payel’s creation'
+[Debug] places title check: 'Daily tiffin hub'
+[Debug] places title check: 'THE HOME FOOD'
+[Debug] places title check: 'Sampanna Tiffin Services'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 20 (page 4)
+[Agent] Summary | Keyword: corporate tiffin services | Organic: 2 | Places: 20 | Pages checked: 5 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'online tiffin service in noida' | local_intent=True
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'online tiffin service in noida', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.omorganickitchen.com/our-services/', 'https://www.tiffit.com/locations/homemade-food-delivery-noida']
-[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'omorganickitchen.com', 'tiffit.com']
-[Agent] Observation: Organic rank 2 (page 1)
-[Tool] searchapi search invoked (places, page 1)
-[Tool] searchapi search invoked (places, page 1) with params={'q': 'online tiffin service in noida', 'start': 0, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'Annapurna Seva'
-[Tool] searchapi search invoked (places, page 2)
-[Tool] searchapi search invoked (places, page 2) with params={'q': 'online tiffin service in noida', 'start': 10, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'Annapurna Seva'
-[Tool] searchapi search invoked (places, page 3)
-[Tool] searchapi search invoked (places, page 3) with params={'q': 'online tiffin service in noida', 'start': 20, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'online tiffin service in noida', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://tiffinshala.in/', 'https://www.tiffit.com/locations/homemade-food-delivery-noida', 'https://www.omorganickitchen.com/our-services/']
+[Debug] target domain=omorganickitchen.com | first result domains=['tiffinshala.in', 'tiffit.com', 'omorganickitchen.com']
+[Agent] Observation: Organic rank 3 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'online tiffin service in noida', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
 [Debug] places title check: 'Homefoodi : Home Food Delivery'
 [Debug] places title check: 'The Tiffin service Noida'
 [Debug] places title check: 'The Mothers Cook (Housewarming, Houseparty, (Vrat / Pooja Bulk) No Onion Garlic, Office order, Daily Breakfast-Lunch-Dinner)'
-[Tool] searchapi search invoked (places, page 4)
-[Tool] searchapi search invoked (places, page 4) with params={'q': 'online tiffin service in noida', 'start': 30, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
 [Debug] places title check: 'Annapurna Seva'
-[Tool] searchapi search invoked (places, page 5)
-[Tool] searchapi search invoked (places, page 5) with params={'q': 'online tiffin service in noida', 'start': 40, 'location': 'Noida, India'}
-[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'search_information', 'organic_results', 'local_map', 'local_results', 'local_results_more_link', 'related_searches', 'pagination']
-[Debug] places title check: 'Homefoodi : Home Food Delivery'
-[Debug] places title check: 'The Tiffin service Noida'
-[Debug] places title check: 'Annapurna Seva'
-[Agent] Summary | Keyword: online tiffin service in noida | Organic: 2 | Places: None | Pages checked: 6 | Retries: 0 | Status: Completed
+[Debug] places title check: 'Tiffin Services Homemade Crunch'
+[Debug] places title check: 'Spice N Sizzle'
+[Debug] places title check: 'Home Food Factory'
+[Debug] places title check: 'The Home Foodie by Vandana'
+[Debug] places title check: 'V R Tiffin Service n Kitchen'
+[Debug] places title check: 'Aditi Tiffin House'
+[Debug] places title check: 'Solanki Tiffin Service'
+[Debug] places title check: 'Santosh Tiffin Service'
+[Debug] places title check: 'TIFFIN SERVICE NOIDA'
+[Debug] places title check: 'Mom's/Home Made Food (Tiffin Service)'
+[Debug] places title check: 'Delicious Food - Home Cooked Tiffin Service in Greater Noida'
+[Debug] places title check: 'Maa ka Swaad Tiffin Service'
+[Debug] places title check: 'Kajal tiffin service'
+[Debug] places title check: 'Monika Tiffin/Catering Service'
+[Debug] places title check: 'Charu's Kitchen'
+[Debug] places title check: 'Manvika's Kitchen'
+[Tool] SerpAPI search invoked (places, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'online tiffin service in noida', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Santosh Tiffin Service'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 2 (page 2)
+[Agent] Summary | Keyword: online tiffin service in noida | Organic: 3 | Places: 2 | Pages checked: 3 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'corporate lunch menu' | local_intent=False
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'corporate lunch menu', 'start': 0, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://dupreecatering.com/corporate-menus/', 'https://marbled.la/blog/corporate-lunch-ideas/', 'https://catering.panerabread.com/menu/category/boxed-lunches']
-[Debug] target domain=omorganickitchen.com | first result domains=['dupreecatering.com', 'marbled.la', 'catering.panerabread.com']
-[Tool] searchapi search invoked (organic, page 2)
-[Tool] searchapi search invoked (organic, page 2) with params={'q': 'corporate lunch menu', 'start': 10, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://dupreecatering.com/corporate-menus/', 'https://marbled.la/blog/corporate-lunch-ideas/', 'https://catering.panerabread.com/menu/category/boxed-lunches']
-[Debug] target domain=omorganickitchen.com | first result domains=['dupreecatering.com', 'marbled.la', 'catering.panerabread.com']
-[Tool] searchapi search invoked (organic, page 3)
-[Tool] searchapi search invoked (organic, page 3) with params={'q': 'corporate lunch menu', 'start': 20, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://dupreecatering.com/corporate-menus/', 'https://marbled.la/blog/corporate-lunch-ideas/', 'https://catering.panerabread.com/menu/category/boxed-lunches']
-[Debug] target domain=omorganickitchen.com | first result domains=['dupreecatering.com', 'marbled.la', 'catering.panerabread.com']
-[Tool] searchapi search invoked (organic, page 4)
-[Tool] searchapi search invoked (organic, page 4) with params={'q': 'corporate lunch menu', 'start': 30, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://dupreecatering.com/corporate-menus/', 'https://marbled.la/blog/corporate-lunch-ideas/', 'https://catering.panerabread.com/menu/category/boxed-lunches']
-[Debug] target domain=omorganickitchen.com | first result domains=['dupreecatering.com', 'marbled.la', 'catering.panerabread.com']
-[Tool] searchapi search invoked (organic, page 5)
-[Tool] searchapi search invoked (organic, page 5) with params={'q': 'corporate lunch menu', 'start': 40, 'location': 'Noida, India'}
-[Debug] first URLs: ['https://dupreecatering.com/corporate-menus/', 'https://marbled.la/blog/corporate-lunch-ideas/', 'https://catering.panerabread.com/menu/category/boxed-lunches']
-[Debug] target domain=omorganickitchen.com | first result domains=['dupreecatering.com', 'marbled.la', 'catering.panerabread.com']
-[Agent] Summary | Keyword: corporate lunch menu | Organic: None | Places: None | Pages checked: 5 | Retries: 0 | Status: Not in top 50
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate lunch menu', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.omorganickitchen.com/weekly-menu/', 'https://www.guptacaterers.in/corporate-catering-menu', 'https://www.spoonboon.com/corporate-party-menu-veg']
+[Debug] target domain=omorganickitchen.com | first result domains=['omorganickitchen.com', 'guptacaterers.in', 'spoonboon.com']
+[Agent] Observation: Organic rank 1 (page 1)
+[Agent] Summary | Keyword: corporate lunch menu | Organic: 1 | Places: None | Pages checked: 1 | Retries: 0 | Status: Completed
 [Agent] Planning search for keyword: 'organic food menu' | local_intent=False
-[Tool] searchapi search invoked (organic, page 1)
-[Tool] searchapi search invoked (organic, page 1) with params={'q': 'organic food menu', 'start': 0, 'location': 'Noida, India'}
-searchapi quota/429 for organic food menu page 1
-[Agent] Summary | Keyword: organic food menu | Organic: None | Places: None | Pages checked: 0 | Retries: 0 | Status: Not in top 50
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic food menu', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.omorganickitchen.com/weekly-menu/', 'https://flatskitchen.com/foodie/organic-meals-home-delivery-in-noida', 'https://www.zomato.com/ncr/priya-organic-food-sector-12-noida']
+[Debug] target domain=omorganickitchen.com | first result domains=['omorganickitchen.com', 'flatskitchen.com', 'zomato.com']
+[Agent] Observation: Organic rank 1 (page 1)
+[Agent] Summary | Keyword: organic food menu | Organic: 1 | Places: None | Pages checked: 1 | Retries: 0 | Status: Completed
+[Agent] Planning search for keyword: 'organic tiffin services' | local_intent=True
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic tiffin services', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.justdial.com/Noida/Tiffin-Services-For-Organic-Food/nct-11182876', 'https://flatskitchen.com/foodie/organic-meals-home-delivery-in-noida', 'https://www.omorganickitchen.com/our-services/']
+[Debug] target domain=omorganickitchen.com | first result domains=['justdial.com', 'flatskitchen.com', 'omorganickitchen.com']
+[Agent] Observation: Organic rank 3 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic tiffin services', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 1 (page 1)
+[Agent] Summary | Keyword: organic tiffin services | Organic: 3 | Places: 1 | Pages checked: 2 | Retries: 0 | Status: Completed
+[Agent] Planning search for keyword: 'corporate food catering' | local_intent=False
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'corporate food catering', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.corporatefoods.in/', 'https://dir.indiamart.com/noida/corporate-catering-service.html', 'https://hchfoods.com/corporate-catering-in-noida/']
+[Debug] target domain=omorganickitchen.com | first result domains=['corporatefoods.in', 'dir.indiamart.com', 'hchfoods.com']
+[Agent] Observation: Organic rank 7 (page 1)
+[Agent] Summary | Keyword: corporate food catering | Organic: 7 | Places: None | Pages checked: 1 | Retries: 0 | Status: Completed
+[Agent] Planning search for keyword: 'meals delivered to your home' | local_intent=False
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'meals delivered to your home', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.tiffit.com/locations/homemade-food-delivery-noida', 'https://flatskitchen.com/foodie/online-home-food-delivery-in-noida', 'https://ojolife.in/?srsltid=AfmBOordWhxvfj1ln6j55sZrQrjF1q5f8toihnAI3TvyHwGqVY4iOK49']
+[Debug] target domain=omorganickitchen.com | first result domains=['tiffit.com', 'flatskitchen.com', 'ojolife.in']
+[Agent] Observation: Organic rank 5 (page 1)
+[Agent] Summary | Keyword: meals delivered to your home | Organic: 5 | Places: None | Pages checked: 1 | Retries: 0 | Status: Completed
+[Agent] Planning search for keyword: 'organic lunch near me' | local_intent=True
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic lunch near me', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.justdial.com/Noida/Organic-Restaurants/nct-10885458', 'https://www.tripadvisor.in/Restaurants-g644043-c10679-Noida_Gautam_Buddha_Nagar_District_Uttar_Pradesh.html', 'https://lbb.in/delhi/sun-salads-noida-farm-4-course-sunday-brunches-organic/']
+[Debug] target domain=omorganickitchen.com | first result domains=['justdial.com', 'tripadvisor.in', 'lbb.in']
+[Tool] SerpAPI search invoked (organic, page 2) [STRICT: Noida, India on google.co.in] with params={'q': 'organic lunch near me', 'start': 10, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.instagram.com/reel/DJvokrJvpil/?hl=en', 'https://www.instagram.com/reel/DK1pLBpvUnz/?hl=en', 'https://www.youtube.com/watch?v=luaJWxIWXEk']
+[Debug] target domain=omorganickitchen.com | first result domains=['instagram.com', 'instagram.com', 'youtube.com']
+[Tool] SerpAPI search invoked (organic, page 3) [STRICT: Noida, India on google.co.in] with params={'q': 'organic lunch near me', 'start': 20, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.pret.com/en-US', 'https://momsorganicmarket.com/', 'https://www.sweetgreen.com/']
+[Debug] target domain=omorganickitchen.com | first result domains=['pret.com', 'momsorganicmarket.com', 'sweetgreen.com']
+[Tool] SerpAPI search invoked (organic, page 4) [STRICT: Noida, India on google.co.in] with params={'q': 'organic lunch near me', 'start': 30, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.grubhub.com/', 'https://lbb.in/delhi/farm-to-table-healthy-eating-delhi/', 'https://bareburger.com/']
+[Debug] target domain=omorganickitchen.com | first result domains=['grubhub.com', 'lbb.in', 'bareburger.com']
+[Tool] SerpAPI search invoked (organic, page 5) [STRICT: Noida, India on google.co.in] with params={'q': 'organic lunch near me', 'start': 40, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.littlespoon.com/?srsltid=AfmBOoq4AKh0nAUDhzTelh737v4BSxphlZDtXUgY7VrU3TKebYY_A5Nz', 'https://www.diginn.com/', 'https://www.protein-house.com/menu/']
+[Debug] target domain=omorganickitchen.com | first result domains=['littlespoon.com', 'diginn.com', 'protein-house.com']
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic lunch near me', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'Healthee Shade'
+[Debug] places title check: 'Poornatva Organic Cafe & Bakery'
+[Debug] places title check: 'Amira's Kitchen - Restaurant (A Unit of Jay Caterers & Decorators)'
+[Debug] places title check: 'Moongliscious'
+[Debug] places title check: 'The organic dhaba'
+[Debug] places title check: 'Priya organic food'
+[Debug] places title check: 'GreeNox - Healthy Bites Healthy Lives'
+[Debug] places title check: 'Organic Restaurants'
+[Debug] places title check: 'Organic Bistro'
+[Debug] places title check: 'EDIFY | Healthy Cafe in Noida'
+[Debug] places title check: 'The Organic Oil Kitchen Meditrerranean and Europian cuisine'
+[Debug] places title check: 'Habidade'
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 13 (page 1)
+[Agent] Summary | Keyword: organic lunch near me | Organic: None | Places: 13 | Pages checked: 6 | Retries: 0 | Status: Completed
+[Agent] Planning search for keyword: 'organic meal delivery' | local_intent=True
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic meal delivery', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://flatskitchen.com/foodie/organic-meals-home-delivery-in-noida', 'https://www.omorganickitchen.com/meal-plans/', 'https://homefoodi.com/blog/organic-meals-home-delivery-in-noida/']
+[Debug] target domain=omorganickitchen.com | first result domains=['flatskitchen.com', 'omorganickitchen.com', 'homefoodi.com']
+[Agent] Observation: Organic rank 2 (page 1)
+[Tool] SerpAPI search invoked (places, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic meal delivery', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] returning places payload keys: ['search_metadata', 'search_parameters', 'local_map', 'local_results', 'pagination', 'serpapi_pagination']
+[Debug] places title check: 'OMKITCHEN | Homestyle Organic Meals Delivery'
+[Agent] Observation: Places rank 1 (page 1)
+[Agent] Summary | Keyword: organic meal delivery | Organic: 2 | Places: 1 | Pages checked: 2 | Retries: 0 | Status: Completed
+[Agent] Planning search for keyword: 'organic meal subscription' | local_intent=False
+[Tool] SerpAPI search invoked (organic, page 1) [STRICT: Noida, India on google.co.in] with params={'q': 'organic meal subscription', 'start': 0, 'location': 'Noida, Uttar Pradesh, India', 'gl': 'in', 'google_domain': 'google.co.in'}
+[Debug] first URLs: ['https://www.omorganickitchen.com/meal-plans/', 'https://flatskitchen.com/foodie/organic-meals-home-delivery-in-noida', 'https://homefoodi.com/blog/organic-meals-home-delivery-in-noida/']
+[Debug] target domain=omorganickitchen.com | first result domains=['omorganickitchen.com', 'flatskitchen.com', 'homefoodi.com']
+[Agent] Observation: Organic rank 1 (page 1)
+[Agent] Summary | Keyword: organic meal subscription | Organic: 1 | Places: None | Pages checked: 1 | Retries: 0 | Status: Completed
 Updated workbook saved to Keyword_Ranking_updated.xlsx
 ===== LLM EXECUTION SUMMARY =====
-Here is a 4-5 line executive summary of the run:
+Here is a concise executive summary:
 
-The run processed 14 keywords, resulting in 3 organic ranks and 2 places ranks found. However, 9 keywords were not in the top 50 and 6 were skipped due to quota limits. The API quota was exhausted, indicating a potential issue with the execution.
+15 out of 20 keywords achieved organic visibility, with 11 appearing in Google Places. 2 keywords did not rank within the top 50. No API quota exhaustion occurred.
 (.venv) (base) ➜  Omnie_Keyword_Ranking git:(main) ✗ 
