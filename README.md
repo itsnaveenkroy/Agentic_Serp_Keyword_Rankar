@@ -1,11 +1,16 @@
 # Omnie Keyword Ranking
 
-Python utility that ingests an Excel keyword list, queries Google via SearchAPI.io (SerpAPI fallback), and writes back organic and local/Places ranks with lightweight agentic logic and domain normalization.
+Python utility that ingests an Excel keyword list, queries Google via **SerpAPI official Python client**, and writes back organic and local/Places ranks with lightweight agentic logic and domain normalization. **All searches are strictly limited to Noida, India on google.co.in**.
 
 ## What it does
 - Reads `Keyword_Ranking.xlsx` → sheet `Keywords` → Column B (keyword), Column C (target URL/domain).
 - Detects local intent (e.g., "near me") and, if present, queries both organic and Places.
-- Checks up to 5 SERP pages (50 results) per channel; matches ranks using normalized domains (`www`/`m` stripped, paths ignored).
+- **Strictly enforces location**: ALL searches (organic and Places) use **Noida, Uttar Pradesh, India** on **google.co.in** — this cannot be overridden.
+- Checks up to 5 SERP pages per channel:
+  - **Organic**: 50 results (10 per page × 5 pages)
+  - **Places**: Up to 100 results (20 per page × 5 pages)
+- Matches ranks using normalized domains (`www`/`m` stripped, paths ignored).
+- **Places ranking**: Returns actual position in local pack (1-20), not synthetic SERP calculations.
 - Writes ranks or status text to `Keyword_Ranking_updated.xlsx` in the same sheet.
 - Handles API quota/429 with exponential backoff; surfaces clear status messages when ranks are absent or blocked.
 
@@ -16,16 +21,17 @@ Python utility that ingests an Excel keyword list, queries Google via SearchAPI.
 This project includes **three versions** that demonstrate progressive evolution from rule-based to LLM-enhanced to graph-orchestrated architectures:
 
 ### Version 1: `nkr.py` (Rule-based baseline)
-**Classic deterministic agent** with BeautifulSoup fallback support.
+**Classic deterministic agent** (legacy, not updated with current SerpAPI implementation).
 - Pure Python logic with no LLM calls
-- Supports both SearchAPI.io and legacy scraping paths
 - Per-keyword geo branching based on local intent
 - Direct procedural flow
+
+**Note**: This version is kept for reference but has not been updated with the latest SerpAPI official client and strict location enforcement.
 
 **Use when**: You need a stable, LLM-free baseline for ranking checks.
 
 ### Version 2: `nkr_llm.py` (LLM-enhanced)
-**LLM-integrated agent** with explainability and summaries.
+**LLM-integrated agent** with explainability and summaries (not updated with current SerpAPI implementation).
 - Forces `location = "Noida, India"` on **all** searches (organic and Places)
 - Planner still decides whether to run Places based on keyword intent
 - Google Places matching is strict: case-insensitive substring match on title for `omkitchen`
@@ -36,24 +42,40 @@ This project includes **three versions** that demonstrate progressive evolution 
 - Early quota kill-switch halts remaining keywords after first quota hit
 - **Same Excel outputs** as v1: "Visible at X"/"Not visible" for Places; rank or "Not in top 50" for organic
 
+**Note**: This version uses the older HTTP request implementation. For the latest SerpAPI official client, use v3.
+
 **Use when**: You need transparency, explainability, and executive summaries without changing core logic.
 
 **API Key required**: `OPENROUTER_API_KEY` (optional; gracefully degrades if missing)
 
-### Version 3: `nkr_langgraph.py` (LangGraph orchestration)
-**Graph-orchestrated agent** using LangGraph state machines.
-- **Same logic as v2** but wrapped in LangGraph nodes and edges
-- **StateGraph architecture**:
-  - **Nodes**: `planner_node`, `organic_search_node`, `places_search_node`, `finalize_node`
-  - **Flow**: planner → organic → (conditional: places if needed) → finalize → END
-  - **State**: `AgentState` dataclass passes context through graph
+### Version 3: `nkr_langgraph.py` (LangGraph orchestration) ✅ **CURRENT**
+**Graph-orchestrated agent** using LangGraph state machines with **official SerpAPI Python client**.
+
+**Latest implementation (January 2026)**:
+- **SerpAPI official client**: Uses `google-search-results` (serpapi) Python package instead of HTTP requests
+- **Strict location enforcement**: ALL searches hardcoded to:
+  - `location`: "Noida, Uttar Pradesh, India"
+  - `gl`: "in" (India geolocation)
+  - `hl`: "en" (English language)
+  - `google_domain`: "google.co.in" (Indian Google only)
+  - ⚠️ **Cannot be overridden** — location params are forced regardless of what's passed
+- **Fixed Places pagination**: Uses multiples of 20 (0, 20, 40, 60, 80) instead of 10
+- **Accurate Places ranking**: Returns actual position (1-20) in local pack, not synthetic calculations
+
+**StateGraph architecture**:
+- **Nodes**: `planner_node`, `organic_search_node`, `places_search_node`, `finalize_node`
+- **Flow**: planner → organic → (conditional: places if needed) → finalize → END
+- **State**: `AgentState` dataclass passes context through graph
 - **Conditional routing**: Places search runs only if `do_places=True` AND not blocked
-- **Thin wrappers**: Each node calls existing functions (no new logic)
-- **Identical outputs** to v1/v2: same ranks, same quota behavior, same logs, same Excel format
+- **LLM explainability**: Same as v2 (plan explanations + executive summary)
+- **Legacy code preserved**: Old SearchAPI.io HTTP implementation commented out for reference
 
-**Use when**: You need visual graph debugging, agent orchestration patterns, or plan to extend with complex multi-agent workflows.
+**Use when**: You need the most up-to-date implementation with accurate Places rankings and strict Indian localization.
 
-**Dependencies**: Requires `langgraph` package (`pip install langgraph`)
+**Dependencies**: 
+```bash
+pip install langgraph google-search-results openai openpyxl
+```
 
 ---
 
@@ -79,12 +101,14 @@ This project includes **three versions** that demonstrate progressive evolution 
 ---
 
 ## Tooling used
-- **HTTP/Search**: SearchAPI.io (`SEARCHAPI_KEY`) or SerpAPI (`SERPAPI_KEY`) for Google results.
-- **HTML parsing**: `BeautifulSoup` for compatibility (v1 legacy scraping paths kept minimal).
-- **Excel I/O**: `openpyxl` to read/write the `Keywords` sheet.
-- **Domain handling**: `urlparse` + custom normalization helpers to align variants.
-- **LLM (v2, v3)**: OpenAI client via OpenRouter API for explainability and summaries.
-- **Orchestration (v3)**: LangGraph `StateGraph` for agent coordination.
+- **Search API (v3)**: SerpAPI official Python client (`google-search-results` package) with `SERPAPI_KEY`
+  - **v1, v2**: Legacy HTTP implementations (SearchAPI.io or direct requests)
+  - **v3**: Official `GoogleSearch` class from serpapi package
+- **HTML parsing**: `BeautifulSoup` legacy support (deprecated, kept for v1 compatibility)
+- **Excel I/O**: `openpyxl` to read/write the `Keywords` sheet
+- **Domain handling**: `urlparse` + custom normalization helpers to align variants
+- **LLM (v2, v3)**: OpenAI client via OpenRouter API for explainability and summaries
+- **Orchestration (v3)**: LangGraph `StateGraph` for agent coordination
 
 ---
 
@@ -116,20 +140,22 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-**For v3 (LangGraph version):**
+**For v3 (LangGraph version with SerpAPI - RECOMMENDED):**
 ```bash
-pip install langgraph
+pip install langgraph google-search-results openai openpyxl requests
 ```
 
 ### 4. Configure API keys
 Create a `.env` file in project root:
 ```env
-# Required for all versions
-SEARCHAPI_KEY=your_searchapi_key
-# SERPAPI_KEY=your_serpapi_key   # optional fallback
+# Required for v3 (current implementation)
+SERPAPI_KEY=your_serpapi_key
 
-# Required for v2 and v3 (optional; gracefully degrades if missing)
+# Required for v2 and v3 LLM features (optional; gracefully degrades if missing)
 OPENROUTER_API_KEY=your_openrouter_key
+
+# Legacy (v1, v2 only)
+# SEARCHAPI_KEY=your_searchapi_key
 ```
 
 ---
@@ -159,7 +185,12 @@ python nkr_langgraph.py
 ### Local/Places intent
 - Triggered when keyword contains hints like "near me", "nearby", "close to", "in ", "tiffin", "food delivery", "meal delivery".
 - **v1**: Default geo is `Noida, India` for local keywords only; change `DEFAULT_LOCATION` or `DEFAULT_GEO_PARAMS` in `nkr.py` if needed.
-- **v2, v3**: Location is **always forced to `Noida, India`** for all searches (organic and Places), eliminating geo variance.
+- **v2, v3**: Location is **always forced to `Noida, Uttar Pradesh, India`** for all searches (organic and Places).
+- **v3 strict enforcement**: 
+  - Hardcoded in `SearchTool.search_page()` — ignores any geo_params passed
+  - Forces `google.co.in` domain
+  - Sets `gl=in` (India) and `hl=en` (English)
+  - **Cannot be changed without modifying source code**
 
 ---
 
@@ -186,15 +217,19 @@ python nkr_langgraph.py
 | Feature | v1 (nkr.py) | v2 (nkr_llm.py) | v3 (nkr_langgraph.py) |
 |---------|-------------|-----------------|----------------------|
 | **Architecture** | Procedural | LLM-enhanced procedural | LangGraph state machine |
+| **Search implementation** | HTTP requests | HTTP requests | ✅ **SerpAPI official client** |
 | **LLM usage** | None | Planner explanation + summary | Same as v2 |
-| **Location handling** | Conditional (local keywords only) | Always forced to Noida | Always forced to Noida |
+| **Location handling** | Conditional (local keywords only) | Always forced to Noida | ✅ **Strict: Noida + google.co.in** |
+| **Places pagination** | page × 10 | page × 10 | ✅ **Fixed: page × 20** |
+| **Places ranking** | Synthetic calculation | Synthetic calculation | ✅ **Actual position (1-20)** |
 | **Places matching** | Link-based | Title substring match | Title substring match |
 | **Runtime events** | None | Logged to `runtime_events` | Logged to `runtime_events` |
 | **Executive summary** | None | ✅ LLM-generated | ✅ LLM-generated |
 | **Graph orchestration** | ❌ | ❌ | ✅ LangGraph |
 | **Early quota halt** | ❌ | ✅ | ✅ |
 | **Excel output** | Same format | Same format | Same format |
-| **Dependencies** | requests, bs4, openpyxl | + openai | + langgraph |
+| **Dependencies** | requests, bs4, openpyxl | + openai | + langgraph, **google-search-results** |
+| **Status** | Legacy reference | Legacy reference | ✅ **Current (Jan 2026)** |
 
 ---
 
@@ -205,6 +240,9 @@ python nkr_langgraph.py
 - **Domain mismatches**: ensure target URL/domain in Column C is the intended site; normalization handles schemes, `www/m`, and paths.
 - **LLM summary missing**: check `OPENROUTER_API_KEY` is set; system gracefully degrades if missing.
 - **LangGraph errors**: ensure `pip install langgraph` is complete; check Python 3.9+.
+- **"API key missing" error (v3)**: Create `.env` file with `SERPAPI_KEY=your_key`
+- **Places pagination errors**: v3 fixes the "multiples of 20" error; ensure you're using `nkr_langgraph.py`
+- **Wrong location results**: v3 hardcodes Noida, India — if you need different locations, you must modify source code
 
 ---
 
@@ -218,7 +256,11 @@ python nkr_langgraph.py
 ---
 
 ## Safety and Terms
-Uses SearchAPI.io/SerpAPI to fetch Google results. Respect provider limits and Google ToS; keep volume low and compliant.
+**Current implementation (v3)**: Uses SerpAPI official Python client to fetch Google results.
+
+**Legacy implementations (v1, v2)**: Used SearchAPI.io or direct HTTP requests.
+
+Respect provider limits and Google ToS; keep volume low and compliant. SerpAPI provides structured data access while maintaining compliance with search engine policies.
 
 ---
 
