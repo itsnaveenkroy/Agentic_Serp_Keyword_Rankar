@@ -9,6 +9,7 @@ import requests
 from serpapi import GoogleSearch
 from openai import OpenAI
 from openpyxl import load_workbook
+from openpyxl.styles import Font, Alignment
 from langgraph.graph import StateGraph, END
 
 
@@ -282,16 +283,31 @@ class RankEvaluator:
 
 
 class ExcelWriterTool:
-    def write(self, ws, row_idx: int, places_col: int, links_col: int, places_rank: Optional[int], organic_rank: Optional[int]) -> None:
-        ws.cell(row=row_idx, column=places_col).value = (
+    def write(
+            self, 
+            ws, 
+            row_idx: int,
+            places_col: int,
+            links_col: int,
+            places_rank: Optional[int],
+            organic_rank: Optional[int]
+            ) -> None:
+        #Google Places cell
+        places_cell = ws.cell(row=row_idx, column=places_col)
+        places_cell.value = (
             f"Visible at {places_rank}" if places_rank else "Not visible"
         )
+        places_cell.font = Font(name="Century Gothic", size =10)
+        places_cell.alignment = Alignment(horizontal="center", vertical="center")
 
-        ws.cell(row=row_idx, column=links_col).value = (
+        #Google Links cell
+        links_cell = ws.cell(row=row_idx, column=links_col)
+        links_cell.value = (
             organic_rank if organic_rank else "Not in top 50"
         )
-
-
+        links_cell.font = Font(name="Century Gothic", size =10)
+        links_cell.alignment = Alignment(horizontal="center", vertical="center")
+        
 def exponential_backoff(retry: int) -> None:
     delay_minutes = 2 ** retry
     delay_seconds = delay_minutes * 60
