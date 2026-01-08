@@ -1,6 +1,39 @@
-langgraph>=0.1.16
-langchain>=0.1.0
-langchain-openai>=0.1.0
-requests>=2.31.0
-beautifulsoup4>=4.12.2
-openpyxl>=3.0.0
+# LangChain / Graph / LLM
+langchain
+langchain-core
+langchain-openai
+langgraph
+langgraph-checkpoint
+langgraph-prebuilt
+langgraph-sdk
+langsmith
+openai
+tiktoken
+
+# HTTP / Networking
+httpx
+requests
+requests-toolbelt
+
+# Data / Parsing
+numpy
+pandas
+orjson
+pyyaml
+beautifulsoup4
+openpyxl
+
+# Config / Utilities
+python-dotenv
+tenacity
+tqdm
+regex
+uuid_utils
+xxhash
+zstandard
+
+# Validation / Models
+pydantic
+
+# External APIs
+google_search_results
